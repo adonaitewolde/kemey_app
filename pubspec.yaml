@@ -17,3 +17,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+supabase_flutter: ^2.0.0
