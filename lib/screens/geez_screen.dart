@@ -29,59 +29,76 @@ class GeezScreen extends StatelessWidget {
 
         final data = snapshot.data ?? [];
 
-        return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4, // number of columns
-              mainAxisSpacing: 6,
-              crossAxisSpacing: 6,
-              childAspectRatio: 1,
-            ),
-            itemCount: data.length,
-            itemBuilder: (context, index) {
-              final item = data[index];
-              return Card.outlined(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
-                  side: BorderSide(
-                    color: const Color.fromARGB(255, 206, 210, 220),
-                    width: 2,
-                  ),
-                ),
-                color: Colors.white30,
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(18),
-                  onTap: () {
-                    debugPrint("pressed");
-                  },
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            item['letter'].toString(),
-                            style: GoogleFonts.notoSansEthiopic(
-                              textStyle: const TextStyle(fontSize: 30),
-                              color: const Color.fromARGB(255, 98, 98, 98),
-                            ),
-                          ),
-                          Text(
-                            item['translit'].toString(),
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(fontSize: 14),
-                              color: Colors.black54,
-                            ),
-                          ),
-                        ],
-                      ),
+        return CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(20.0, 90.0, 16.0, 0),
+              sliver: SliverToBoxAdapter(
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Base Letters', // Hier kannst du deine Überschrift anpassen
+                    style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(fontSize: 24),
                     ),
                   ),
                 ),
-              );
-            },
-          ),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.all(16.0),
+              sliver: SliverGrid(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4, // number of columns
+                  mainAxisSpacing: 6,
+                  crossAxisSpacing: 6,
+                  childAspectRatio: 1,
+                ),
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  final item = data[index];
+                  return Card.outlined(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18),
+                      side: BorderSide(
+                        color: const Color.fromARGB(255, 206, 210, 220),
+                        width: 2,
+                      ),
+                    ),
+                    color: Colors.white30,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(18),
+                      onTap: () {
+                        debugPrint("pressed");
+                      },
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                item['letter'].toString(),
+                                style: GoogleFonts.notoSansEthiopic(
+                                  textStyle: const TextStyle(fontSize: 30),
+                                  color: const Color.fromARGB(255, 98, 98, 98),
+                                ),
+                              ),
+                              Text(
+                                item['translit'].toString(),
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(fontSize: 14),
+                                  color: Colors.black54,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }, childCount: data.length),
+              ),
+            ),
+          ],
         );
       },
     );
