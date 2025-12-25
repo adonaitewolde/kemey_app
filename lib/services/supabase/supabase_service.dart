@@ -9,3 +9,5 @@ Future<void> initializeSupabase() async {
 }
 
 SupabaseClient get supabase => Supabase.instance.client;
+
+
