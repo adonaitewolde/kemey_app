@@ -3,10 +3,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class GeezService {
   static Future<PostgrestList> getBaseLetters() async {
-    return await supabase
-        .from('tigrinya_fidel')
-        .select()
-        .eq('order_index', 1);
+    return await supabase.from('tigrinya_fidel').select().eq('order_index', 1);
   }
 
   static Future<PostgrestList> getBaseLetterVariants(String baseLetter) async {
@@ -17,4 +14,3 @@ class GeezService {
         .order('order_index', ascending: true);
   }
 }
-

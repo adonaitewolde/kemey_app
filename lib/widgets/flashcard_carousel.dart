@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class FlashCardCarousel extends StatefulWidget {
   const FlashCardCarousel({super.key});
 
@@ -46,16 +45,15 @@ class UncontainedLayoutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card.outlined(
+    return Card(
       color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(40),
-      ),
-
+      elevation: 8,
+      shadowColor: Colors.black.withValues(alpha: 0.25),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       child: Center(
         child: Text(
           label,
-          style: const TextStyle(color: Colors.white, fontSize: 20),
+          style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),
           overflow: TextOverflow.clip,
           softWrap: false,
         ),
