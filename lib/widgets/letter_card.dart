@@ -15,7 +15,7 @@ class LetterCard extends StatelessWidget {
   static const _letterTextStyle = TextStyle(
     fontFamily: 'NotoSansEthiopic',
     fontSize: 30,
-    color: Color.fromARGB(255, 98, 98, 98),
+    color: Color.fromARGB(255, 68, 39, 33),
   );
 
   static const _translitTextStyle = TextStyle(
