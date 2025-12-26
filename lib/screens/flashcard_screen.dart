@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kemey_app/widgets/flashcard_carousel.dart';
 
 class FlashcardScreen extends StatelessWidget {
   const FlashcardScreen({super.key});
@@ -6,14 +7,7 @@ class FlashcardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.style, size: 64),
-          SizedBox(height: 16),
-          Text('Flashcards'),
-        ],
-      ),
+      child: FlashCardCarousel()
     );
   }
 }
