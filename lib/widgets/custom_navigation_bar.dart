@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/nav_bar_provider.dart';
@@ -13,30 +14,41 @@ class CustomNavigationBar extends ConsumerWidget {
       selectedIndex: selectedIndex,
       backgroundColor: Colors.transparent,
       indicatorColor: Colors.transparent,
-      height: 50,
       onDestinationSelected: (index) {
         ref.read(navigationIndexProvider.notifier).state = index;
       },
       destinations: const [
         NavigationDestination(
-          icon: Icon(Icons.home_outlined),
-          selectedIcon: Icon(Icons.home),
-          label: '',
+          icon: Icon(CupertinoIcons.house),
+          selectedIcon: Icon(
+            CupertinoIcons.house_fill,
+            color: Color.fromARGB(255, 255, 120, 2),
+          ),
+          label: 'Home',
         ),
         NavigationDestination(
-          icon: Icon(Icons.style_outlined),
-          selectedIcon: Icon(Icons.style),
-          label: '',
+          icon: Icon(CupertinoIcons.collections),
+          selectedIcon: Icon(
+            CupertinoIcons.collections_solid,
+            color: Color.fromARGB(255, 255, 120, 2),
+          ),
+          label: 'Flashcards',
         ),
         NavigationDestination(
-          icon: Icon(Icons.book_outlined),
-          selectedIcon: Icon(Icons.book),
-          label: '',
+          icon: Icon(CupertinoIcons.book),
+          selectedIcon: Icon(
+            CupertinoIcons.book_fill,
+            color: Color.fromARGB(255, 255, 120, 2),
+          ),
+          label: "Ge'ez",
         ),
         NavigationDestination(
-          icon: Icon(Icons.person_outline),
-          selectedIcon: Icon(Icons.person),
-          label: '',
+          icon: Icon(CupertinoIcons.person),
+          selectedIcon: Icon(
+            CupertinoIcons.person_fill,
+            color: Color.fromARGB(255, 255, 120, 2),
+          ),
+          label: 'Profile',
         ),
       ],
     );
