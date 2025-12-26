@@ -26,6 +26,13 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      # Create .env file for analysis (required asset)
+      # Uses GitHub secrets for Supabase credentials
+      - name: Create .env file
+        run: |
+          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" > .env
+          echo "SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}" >> .env
+
       # Uncomment this step to verify the use of 'flutter format' on each commit.
       # - name: Verify formatting
       #   run: flutter format --output=none --set-exit-if-changed .
