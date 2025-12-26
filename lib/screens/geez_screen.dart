@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:kemey_app/services/supabase/supabase_service.dart';
+import 'package:kemey_app/services/supabase/geez_service.dart';
+import 'package:kemey_app/widgets/letter_card.dart';
+import 'package:kemey_app/widgets/letter_variants_modal.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class GeezScreen extends StatelessWidget {
   const GeezScreen({super.key});
 
-  Future<PostgrestList> getGeez() async {
-    final data = await supabase
-        .from('tigrinya_fidel')
-        .select()
-        .eq('order_index', 1);
-    return data;
-  }
+  static const _headerTextStyle = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 24,
+  );
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<PostgrestList>(
-      future: getGeez(),
+      future: GeezService.getBaseLetters(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -30,93 +28,48 @@ class GeezScreen extends StatelessWidget {
         final data = snapshot.data ?? [];
 
         return CustomScrollView(
-          slivers: [
-            SliverPadding(
-              padding: const EdgeInsets.fromLTRB(22.0, 90.0, 16.0, 0),
-              sliver: SliverToBoxAdapter(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Base Letters', // Hier kannst du deine Überschrift anpassen
-                    style: GoogleFonts.poppins(
-                      textStyle: const TextStyle(fontSize: 24),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.all(16.0),
-              sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, // number of columns
-                  mainAxisSpacing: 2,
-                  crossAxisSpacing: 2,
-                  childAspectRatio: 1,
-                ),
-                delegate: SliverChildBuilderDelegate((context, index) {
-                  final item = data[index];
-                  return Card.outlined(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(
-                        color: const Color.fromARGB(255, 206, 210, 220),
-                        width: 2,
-                      ),
-                    ),
-                    color: Colors.white30,
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(18),
-                      onTap: () {
-                        showModalBottomSheet<void>(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return SizedBox(
-                              height: 400,
-                              child: Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    const Text('Modal BottomSheet'),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Text(
-                                item['letter'].toString(),
-                                style: GoogleFonts.notoSansEthiopic(
-                                  textStyle: const TextStyle(fontSize: 30),
-                                  color: const Color.fromARGB(255, 98, 98, 98),
-                                ),
-                              ),
-                              Text(
-                                item['translit'].toString(),
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(fontSize: 14),
-                                  color: Colors.black54,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                }, childCount: data.length),
-              ),
-            ),
-          ],
+          slivers: [_buildHeader(), _buildLetterGrid(context, data)],
         );
       },
+    );
+  }
+
+  Widget _buildHeader() {
+    return SliverPadding(
+      padding: const EdgeInsets.fromLTRB(22.0, 90.0, 16.0, 0),
+      sliver: SliverToBoxAdapter(
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text('Base Letters', style: _headerTextStyle),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLetterGrid(BuildContext context, List<dynamic> data) {
+    return SliverPadding(
+      padding: const EdgeInsets.all(16.0),
+      sliver: SliverGrid(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4,
+          mainAxisSpacing: 2,
+          crossAxisSpacing: 2,
+          childAspectRatio: 1,
+        ),
+        delegate: SliverChildBuilderDelegate((context, index) {
+          final item = data[index];
+          return LetterCard(
+            letter: item['letter'].toString(),
+            translit: item['translit'].toString(),
+            onTap: () {
+              showModalBottomSheet<void>(
+                context: context,
+                builder: (context) => LetterVariantsModal(baseLetter: item),
+              );
+            },
+          );
+        }, childCount: data.length),
+      ),
     );
   }
 }
