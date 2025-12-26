@@ -32,7 +32,7 @@ class GeezScreen extends StatelessWidget {
         return CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(20.0, 90.0, 16.0, 0),
+              padding: const EdgeInsets.fromLTRB(22.0, 90.0, 16.0, 0),
               sliver: SliverToBoxAdapter(
                 child: Align(
                   alignment: Alignment.centerLeft,
@@ -50,15 +50,15 @@ class GeezScreen extends StatelessWidget {
               sliver: SliverGrid(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4, // number of columns
-                  mainAxisSpacing: 6,
-                  crossAxisSpacing: 6,
+                  mainAxisSpacing: 2,
+                  crossAxisSpacing: 2,
                   childAspectRatio: 1,
                 ),
                 delegate: SliverChildBuilderDelegate((context, index) {
                   final item = data[index];
                   return Card.outlined(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
+                      borderRadius: BorderRadius.circular(20),
                       side: BorderSide(
                         color: const Color.fromARGB(255, 206, 210, 220),
                         width: 2,
@@ -68,7 +68,23 @@ class GeezScreen extends StatelessWidget {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(18),
                       onTap: () {
-                        debugPrint("pressed");
+                        showModalBottomSheet<void>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SizedBox(
+                              height: 400,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    const Text('Modal BottomSheet'),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
                       },
                       child: Center(
                         child: Padding(
