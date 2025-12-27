@@ -33,7 +33,7 @@ class LetterVariantsModal extends StatelessWidget {
         return SizedBox(
           height: 400,
           child: Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
