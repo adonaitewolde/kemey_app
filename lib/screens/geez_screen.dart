@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kemey_app/services/supabase/geez_service.dart';
+import 'package:kemey_app/utils/haptics.dart';
 import 'package:kemey_app/widgets/letter_card.dart';
 import 'package:kemey_app/widgets/letter_variants_modal.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -62,6 +63,7 @@ class GeezScreen extends StatelessWidget {
             letter: item['letter'].toString(),
             translit: item['translit'].toString(),
             onTap: () {
+              selectionClick();
               showModalBottomSheet<void>(
                 context: context,
                 builder: (context) => LetterVariantsModal(baseLetter: item),
