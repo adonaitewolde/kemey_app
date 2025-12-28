@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
@@ -12,54 +13,71 @@ class FlashCardCarousel extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentPage = ref.watch(flashcardCarouselCurrentPageProvider);
-    final sets = ref.watch(flashcardSetsProvider);
-    final itemCount = sets.length;
-    final safeCurrentPage = itemCount == 0
-        ? 0
-        : currentPage.clamp(0, itemCount - 1);
+    final setsAsync = ref.watch(flashcardSetsProvider);
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxHeight: 250),
-            child: NotificationListener<ScrollNotification>(
-              onNotification: (ScrollNotification notification) {
-                if (notification is ScrollUpdateNotification) {
-                  final position = notification.metrics.pixels;
-                  final itemExtent = 330.0;
-                  final newPage = (position / itemExtent).round();
-                  if (newPage != safeCurrentPage &&
-                      newPage >= 0 &&
-                      newPage < itemCount) {
-                    selectionClick();
-                    ref
-                        .read(flashcardCarouselCurrentPageProvider.notifier)
-                        .setPage(newPage);
-                  }
-                }
-                return false;
-              },
-              child: CarouselView(
-                itemExtent: 330,
-                shrinkExtent: 200,
-                children: List<Widget>.generate(itemCount, (int index) {
-                  return FlashcardSetCard(
-                    set: sets[index],
-                    isActive: index == safeCurrentPage,
-                    onTap: () async {
-                      await mediumImpact();
-                    },
-                  );
-                }),
+    return setsAsync.when(
+      data: (sets) {
+        final itemCount = sets.length;
+        final safeCurrentPage = itemCount == 0
+            ? 0
+            : currentPage.clamp(0, itemCount - 1);
+
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxHeight: 250),
+                child: NotificationListener<ScrollNotification>(
+                  onNotification: (ScrollNotification notification) {
+                    if (notification is ScrollUpdateNotification) {
+                      final position = notification.metrics.pixels;
+                      final itemExtent = 330.0;
+                      final newPage = (position / itemExtent).round();
+                      if (newPage != safeCurrentPage &&
+                          newPage >= 0 &&
+                          newPage < itemCount) {
+                        selectionClick();
+                        ref
+                            .read(flashcardCarouselCurrentPageProvider.notifier)
+                            .setPage(newPage);
+                      }
+                    }
+                    return false;
+                  },
+                  child: CarouselView(
+                    itemExtent: 330,
+                    shrinkExtent: 200,
+                    children: List<Widget>.generate(itemCount, (int index) {
+                      return FlashcardSetCard(
+                        set: sets[index],
+                        isActive: index == safeCurrentPage,
+                        onTap: () async {
+                          await mediumImpact();
+                        },
+                      );
+                    }),
+                  ),
+                ),
               ),
             ),
-          ),
+            const SizedBox(height: 16),
+            buildPageIndicators(context, safeCurrentPage, itemCount),
+          ],
+        );
+      },
+      loading: () => const Center(
+        child: Padding(
+          padding: EdgeInsets.all(32.0),
+          child: CircularProgressIndicator(),
         ),
-        const SizedBox(height: 16),
-        buildPageIndicators(context, safeCurrentPage, itemCount),
-      ],
+      ),
+      error: (error, stack) => Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: Text('Error loading flashcard sets: $error'),
+        ),
+      ),
     );
   }
 }
@@ -78,46 +96,23 @@ class FlashcardSetCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    final accent = set.accentColor;
     final title = set.title;
     final description = set.description;
     final cardCount = set.cardCount;
 
-    final bg = LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [
-        accent.withValues(alpha: 0.95),
-        accent.withValues(alpha: 0.65),
-        colorScheme.surface.withValues(alpha: 0.10),
-      ],
-      stops: const [0.0, 0.7, 1.0],
-    );
-
     return AnimatedScale(
-      duration: const Duration(milliseconds: 180),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.easeOut,
       scale: isActive ? 1.0 : 0.98,
       child: Material(
-        color: Colors.transparent,
+        color: const Color.fromARGB(255, 255, 128, 0),
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(28),
           child: Ink(
-            decoration: BoxDecoration(
-              gradient: bg,
-              borderRadius: BorderRadius.circular(28),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: isActive ? 0.22 : 0.14),
-                  blurRadius: isActive ? 22 : 16,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-            ),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(28)),
             child: Stack(
               children: [
                 Padding(
@@ -172,7 +167,7 @@ class FlashcardSetCard extends StatelessWidget {
                       Row(
                         children: [
                           _Stat(
-                            icon: Icons.style_rounded,
+                            icon: CupertinoIcons.rectangle_stack,
                             label: '$cardCount cards',
                           ),
                           const SizedBox(width: 12),

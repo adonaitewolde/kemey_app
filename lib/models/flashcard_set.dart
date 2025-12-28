@@ -7,14 +7,10 @@ class FlashcardSet {
     required this.title,
     required this.description,
     required this.cardCount,
-    required this.accentColor,
   });
 
   final String id;
   final String title;
   final String description;
   final int cardCount;
-  final Color accentColor;
 }
-
-
