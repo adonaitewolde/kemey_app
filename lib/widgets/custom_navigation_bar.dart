@@ -15,7 +15,7 @@ class CustomNavigationBar extends ConsumerWidget {
       backgroundColor: Colors.transparent,
       indicatorColor: Colors.transparent,
       onDestinationSelected: (index) {
-        ref.read(navigationIndexProvider.notifier).state = index;
+        ref.read(navigationIndexProvider.notifier).setIndex(index);
       },
       destinations: const [
         NavigationDestination(

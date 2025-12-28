@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
 
-final flashcardSetsProvider = Provider<List<FlashcardSet>>((ref) {
+part 'flashcard_sets_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+List<FlashcardSet> flashcardSets(FlashcardSetsRef ref) {
   // TODO: Replace with Supabase-backed sets.
   return const [
     FlashcardSet(
@@ -34,6 +37,4 @@ final flashcardSetsProvider = Provider<List<FlashcardSet>>((ref) {
       accentColor: Color(0xFFF97316), // Orange
     ),
   ];
-});
-
-
+}

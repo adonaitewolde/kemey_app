@@ -1,5 +1,13 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final flashcardCarouselCurrentPageProvider = StateProvider<int>((ref) => 0);
+part 'flashcard_carousel_provider.g.dart';
 
-final flashcardCarouselItemCountProvider = Provider<int>((ref) => 4);
+@riverpod
+class FlashcardCarouselCurrentPage extends _$FlashcardCarouselCurrentPage {
+  @override
+  int build() => 0;
+
+  void setPage(int page) {
+    state = page;
+  }
+}

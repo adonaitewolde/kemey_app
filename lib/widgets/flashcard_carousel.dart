@@ -35,9 +35,8 @@ class FlashCardCarousel extends ConsumerWidget {
                       newPage < itemCount) {
                     selectionClick();
                     ref
-                            .read(flashcardCarouselCurrentPageProvider.notifier)
-                            .state =
-                        newPage;
+                        .read(flashcardCarouselCurrentPageProvider.notifier)
+                        .setPage(newPage);
                   }
                 }
                 return false;
@@ -63,9 +62,6 @@ class FlashCardCarousel extends ConsumerWidget {
       ],
     );
   }
-
- 
-
 }
 
 class FlashcardSetCard extends StatelessWidget {
@@ -193,7 +189,6 @@ class FlashcardSetCard extends StatelessWidget {
     );
   }
 }
-
 
 class _Stat extends StatelessWidget {
   const _Stat({required this.icon, required this.label});

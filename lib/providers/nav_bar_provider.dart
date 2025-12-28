@@ -1,3 +1,13 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final navigationIndexProvider = StateProvider<int>((ref) => 0);
+part 'nav_bar_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+class NavigationIndex extends _$NavigationIndex {
+  @override
+  int build() => 0;
+
+  void setIndex(int index) {
+    state = index;
+  }
+}
