@@ -18,14 +18,9 @@ class GeezScreen extends StatelessWidget {
     return FutureBuilder<PostgrestList>(
       future: GeezService.getBaseLetters(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
         if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         }
-
         final data = snapshot.data ?? [];
 
         return CustomScrollView(

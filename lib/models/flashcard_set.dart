@@ -7,7 +7,6 @@ class FlashcardSet {
     required this.title,
     required this.description,
     required this.cardCount,
-    required this.dueCount,
     required this.accentColor,
   });
 
@@ -15,7 +14,6 @@ class FlashcardSet {
   final String title;
   final String description;
   final int cardCount;
-  final int dueCount;
   final Color accentColor;
 }
 

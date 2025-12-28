@@ -10,7 +10,6 @@ final flashcardSetsProvider = Provider<List<FlashcardSet>>((ref) {
       title: 'Tigrinya Basics',
       description: 'Alphabet, greetings, essentials',
       cardCount: 48,
-      dueCount: 6,
       accentColor: Color(0xFF4F46E5), // Indigo
     ),
     FlashcardSet(
@@ -18,7 +17,6 @@ final flashcardSetsProvider = Provider<List<FlashcardSet>>((ref) {
       title: 'Verbs — Level 1',
       description: 'Most common verbs + patterns',
       cardCount: 36,
-      dueCount: 0,
       accentColor: Color(0xFF06B6D4), // Cyan
     ),
     FlashcardSet(
@@ -26,7 +24,6 @@ final flashcardSetsProvider = Provider<List<FlashcardSet>>((ref) {
       title: 'Food & Travel',
       description: 'Ordering, directions, places',
       cardCount: 28,
-      dueCount: 3,
       accentColor: Color(0xFF10B981), // Emerald
     ),
     FlashcardSet(
@@ -34,7 +31,6 @@ final flashcardSetsProvider = Provider<List<FlashcardSet>>((ref) {
       title: 'Geez Letters',
       description: 'Recognition + writing practice',
       cardCount: 72,
-      dueCount: 12,
       accentColor: Color(0xFFF97316), // Orange
     ),
   ];

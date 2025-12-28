@@ -4,6 +4,7 @@ import 'package:kemey_app/models/flashcard_set.dart';
 import 'package:kemey_app/providers/flashcard_carousel_provider.dart';
 import 'package:kemey_app/providers/flashcard_sets_provider.dart';
 import 'package:kemey_app/utils/haptics.dart';
+import 'package:kemey_app/services/flashcard_service.dart';
 
 class FlashCardCarousel extends ConsumerWidget {
   const FlashCardCarousel({super.key});
@@ -58,41 +59,13 @@ class FlashCardCarousel extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 16),
-        _buildPageIndicators(context, safeCurrentPage, itemCount),
+        buildPageIndicators(context, safeCurrentPage, itemCount),
       ],
     );
   }
 
-  Widget _buildPageIndicators(
-    BuildContext context,
-    int currentPage,
-    int itemCount,
-  ) {
-    if (itemCount <= 1) return const SizedBox.shrink();
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        itemCount,
-        (index) => _buildIndicator(context, index == currentPage),
-      ),
-    );
-  }
+ 
 
-  Widget _buildIndicator(BuildContext context, bool isActive) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      height: 8,
-      width: isActive ? 24 : 8,
-      decoration: BoxDecoration(
-        color: isActive
-            ? colorScheme.primary
-            : colorScheme.outlineVariant.withValues(alpha: 0.6),
-        borderRadius: BorderRadius.circular(4),
-      ),
-    );
-  }
 }
 
 class FlashcardSetCard extends StatelessWidget {
@@ -116,7 +89,6 @@ class FlashcardSetCard extends StatelessWidget {
     final title = set.title;
     final description = set.description;
     final cardCount = set.cardCount;
-    final dueCount = set.dueCount;
 
     final bg = LinearGradient(
       begin: Alignment.topLeft,
@@ -175,7 +147,6 @@ class FlashcardSetCard extends StatelessWidget {
                             ),
                           ),
                           const Spacer(),
-                          _DueChip(dueCount: dueCount),
                         ],
                       ),
                       const SizedBox(height: 16),
@@ -209,10 +180,6 @@ class FlashcardSetCard extends StatelessWidget {
                             label: '$cardCount cards',
                           ),
                           const SizedBox(width: 12),
-                          _Stat(
-                            icon: Icons.schedule_rounded,
-                            label: dueCount == 0 ? 'All done' : '$dueCount due',
-                          ),
                         ],
                       ),
                     ],
@@ -227,36 +194,6 @@ class FlashcardSetCard extends StatelessWidget {
   }
 }
 
-class _DueChip extends StatelessWidget {
-  const _DueChip({required this.dueCount});
-
-  final int dueCount;
-
-  @override
-  Widget build(BuildContext context) {
-    final label = dueCount == 0 ? 'Ready' : '$dueCount due';
-    final bg = dueCount == 0
-        ? Colors.white.withValues(alpha: 0.18)
-        : Colors.black.withValues(alpha: 0.18);
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: bg,
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.18)),
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w600,
-          fontSize: 12,
-        ),
-      ),
-    );
-  }
-}
 
 class _Stat extends StatelessWidget {
   const _Stat({required this.icon, required this.label});
