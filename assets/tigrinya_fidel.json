@@ -1,0 +1,2144 @@
+[
+  {
+    "id": "00f9b20c-554d-4354-a5f5-2cddba4e27c3",
+    "letter": "ጄ",
+    "translit": "jee",
+    "base_letter": "ጀ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "01066290-f9fb-4abe-9d1d-cb5c8b7b09c5",
+    "letter": "ሁ",
+    "translit": "hu",
+    "base_letter": "ሀ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "03c92731-5971-45c9-9f39-4f4bfc52b152",
+    "letter": "ዳ",
+    "translit": "daa",
+    "base_letter": "ደ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "07775242-2001-461e-9a8d-ce6ea158e602",
+    "letter": "ዤ",
+    "translit": "zhee",
+    "base_letter": "ዠ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0b79bd6e-6455-417c-95e0-4f27a75e8cce",
+    "letter": "ጋ",
+    "translit": "gaa",
+    "base_letter": "ገ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0bfd2296-8ca6-4459-a1e7-410f40ce4527",
+    "letter": "ዝ",
+    "translit": "ze",
+    "base_letter": "ዘ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0c0c13ab-731e-4ffa-ad94-58c28b321d6a",
+    "letter": "ት",
+    "translit": "te",
+    "base_letter": "ተ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0c225aed-44f9-4537-a977-61eb631cfc7c",
+    "letter": "ጱ",
+    "translit": "p'u",
+    "base_letter": "ጰ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0d7a7fc4-fa38-4fde-93d3-6296a066f7f9",
+    "letter": "ጴ",
+    "translit": "p'ee",
+    "base_letter": "ጰ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0daf3735-8ac0-4dcc-a425-7d217decffa1",
+    "letter": "ኂ",
+    "translit": "hi",
+    "base_letter": "ኀ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0eb49df0-ef4c-4a3c-9316-5a06b521e3c5",
+    "letter": "ረ",
+    "translit": "ra",
+    "base_letter": "ረ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0f70a1c5-acca-43c2-bf9d-5922d1ef909e",
+    "letter": "ዘ",
+    "translit": "za",
+    "base_letter": "ዘ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "0fd278fc-cf8d-475a-8939-d5cae8dd0cc1",
+    "letter": "ፎ",
+    "translit": "fo",
+    "base_letter": "ፈ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "11588ace-4949-4033-83ee-8898d1dd2639",
+    "letter": "ፂ",
+    "translit": "ts'i",
+    "base_letter": "ፀ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "12eb7149-69d3-49fe-8556-f025610353a6",
+    "letter": "ቅ",
+    "translit": "qe",
+    "base_letter": "ቀ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "12eff5ef-b94a-4535-a738-e27b585a60de",
+    "letter": "ቑ",
+    "translit": "qu",
+    "base_letter": "ቐ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "13a4788c-6362-4b4f-a67b-6bb83cc88306",
+    "letter": "ሒ",
+    "translit": "hi",
+    "base_letter": "ሐ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "13f2b199-e10e-41a7-9220-7f027d428a75",
+    "letter": "ድ",
+    "translit": "de",
+    "base_letter": "ደ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "14e529ac-fe08-4c2e-8e18-251386890023",
+    "letter": "ላ",
+    "translit": "laa",
+    "base_letter": "ለ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "15ab96a1-e3fd-40e1-8500-941352257d69",
+    "letter": "ታ",
+    "translit": "taa",
+    "base_letter": "ተ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "15e3cfac-e19f-416c-bf9f-6cd762f6d1b7",
+    "letter": "ኃ",
+    "translit": "haa",
+    "base_letter": "ኀ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "169648b8-8588-4477-9eab-7cd1b465de13",
+    "letter": "ዶ",
+    "translit": "do",
+    "base_letter": "ደ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "17604127-028f-486f-b9e4-80ad99eaf8b5",
+    "letter": "ዩ",
+    "translit": "yu",
+    "base_letter": "የ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "18598d8d-fb05-4304-8f2e-beebebd7c4ff",
+    "letter": "ጥ",
+    "translit": "t'e",
+    "base_letter": "ጠ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "198da268-9a52-4f8b-a487-577ab26f9556",
+    "letter": "ደ",
+    "translit": "da",
+    "base_letter": "ደ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "1a324729-a1c5-4c40-8a72-3f3f2347dc15",
+    "letter": "ፐ",
+    "translit": "pa",
+    "base_letter": "ፐ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "1ae652e4-c5bb-45a2-b2ae-1ba85dcdf228",
+    "letter": "ሣ",
+    "translit": "saa",
+    "base_letter": "ሠ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "1b0a16ab-fdb4-452c-8482-59a301ed7cb6",
+    "letter": "ው",
+    "translit": "we",
+    "base_letter": "ወ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "1c0db459-1b11-40cc-8f44-cf41d48a7c77",
+    "letter": "ሔ",
+    "translit": "hee",
+    "base_letter": "ሐ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "228c4076-619d-4963-a255-4bfc4b2c2b3d",
+    "letter": "ዚ",
+    "translit": "zi",
+    "base_letter": "ዘ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "229f4218-c6f0-4303-8c01-4f0151cdd3eb",
+    "letter": "ኝ",
+    "translit": "ne",
+    "base_letter": "ኘ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "26434cea-6e94-4fc6-892a-8550fd0ae255",
+    "letter": "ነ",
+    "translit": "na",
+    "base_letter": "ነ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "27435e5d-7c0b-433b-88b9-91bd394b2b60",
+    "letter": "ሮ",
+    "translit": "ro",
+    "base_letter": "ረ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "27e59f79-41fe-4016-adc4-06e0b65973aa",
+    "letter": "ሺ",
+    "translit": "shi",
+    "base_letter": "ሸ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "2a7379b8-b00d-40cf-b88d-b29552a0e685",
+    "letter": "ቄ",
+    "translit": "qee",
+    "base_letter": "ቀ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "2aad9317-12f4-41a8-90db-71726618352a",
+    "letter": "ች",
+    "translit": "che",
+    "base_letter": "ቸ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "2b270a8f-4bd0-478d-aad6-2cdaeb1c19a5",
+    "letter": "ጣ",
+    "translit": "t'aa",
+    "base_letter": "ጠ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "2d25ac28-3a4e-4e1c-a1c8-d95d88c55e8f",
+    "letter": "ኼ",
+    "translit": "khee",
+    "base_letter": "ኸ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "2d840aad-7c0b-407b-8984-a503f55ce515",
+    "letter": "ፈ",
+    "translit": "fa",
+    "base_letter": "ፈ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "2e58b5b7-bbf4-4882-97fd-2ed1eaa4cfd6",
+    "letter": "ጮ",
+    "translit": "ch'o",
+    "base_letter": "ጨ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "314904bb-8c07-48ef-8c1e-a12ca799cbf6",
+    "letter": "ኻ",
+    "translit": "khaa",
+    "base_letter": "ኸ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "31622a66-8dc7-457c-83e3-1da8014f126e",
+    "letter": "ዛ",
+    "translit": "zaa",
+    "base_letter": "ዘ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "31eb7085-ecbb-4420-bf32-57f46a7b7385",
+    "letter": "ዙ",
+    "translit": "zu",
+    "base_letter": "ዘ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "31ee6adf-0de4-4f8e-8003-9b2df903ca1e",
+    "letter": "ህ",
+    "translit": "he",
+    "base_letter": "ሀ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "320d29a4-9c24-4e03-a859-ba8344659043",
+    "letter": "ገ",
+    "translit": "ga",
+    "base_letter": "ገ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "34bf5e79-5395-4e0a-9b50-560b5e25aa92",
+    "letter": "ዥ",
+    "translit": "zhe",
+    "base_letter": "ዠ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "3562f95d-5771-44db-8ac1-ea1db4cd1172",
+    "letter": "ዔ",
+    "translit": "ee",
+    "base_letter": "ዐ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "364abb9e-6516-4ba9-b9a2-78dd3f42be1e",
+    "letter": "ቺ",
+    "translit": "chi",
+    "base_letter": "ቸ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "36abf5dc-392c-4ca1-a9b7-e0b56d631762",
+    "letter": "ሪ",
+    "translit": "ri",
+    "base_letter": "ረ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "36f38a38-e9da-4fe6-85cb-0b3061104fbf",
+    "letter": "ኡ",
+    "translit": "u",
+    "base_letter": "አ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "39535fce-eb69-429c-95e8-a829af9b070a",
+    "letter": "ፓ",
+    "translit": "paa",
+    "base_letter": "ፐ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "39a66a95-e704-4c5e-91a7-c2e359b1e553",
+    "letter": "ጀ",
+    "translit": "ja",
+    "base_letter": "ጀ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "39eb448f-5a3d-4331-ae5b-043d53ffdcf9",
+    "letter": "ለ",
+    "translit": "la",
+    "base_letter": "ለ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "3a3d09a3-a332-4e13-ae43-ce2c855100ba",
+    "letter": "ዢ",
+    "translit": "zhi",
+    "base_letter": "ዠ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "3a571381-bfc6-449b-9f06-6d37d1a47ac2",
+    "letter": "ጺ",
+    "translit": "ts'i",
+    "base_letter": "ጸ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "3a944e0d-ceef-4fbb-8a81-393cb2453db7",
+    "letter": "ቻ",
+    "translit": "chaa",
+    "base_letter": "ቸ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "3b3f2337-e6ac-4806-a9bf-df0afd777c27",
+    "letter": "ር",
+    "translit": "re",
+    "base_letter": "ረ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "3e131b35-a5f7-48e5-b008-7a20f9706234",
+    "letter": "ሹ",
+    "translit": "shu",
+    "base_letter": "ሸ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "3f6379a6-b215-412b-8676-2f96a31798d4",
+    "letter": "ኣ",
+    "translit": "aa",
+    "base_letter": "አ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "4024c5f9-8005-4884-9fab-7240aa3500d9",
+    "letter": "ሽ",
+    "translit": "she",
+    "base_letter": "ሸ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "431275f7-b3ed-4ac0-9418-d60496de0d82",
+    "letter": "ጁ",
+    "translit": "ju",
+    "base_letter": "ጀ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "4469ac09-b2ea-4c1e-ac78-c01c850ed9c9",
+    "letter": "ዬ",
+    "translit": "yee",
+    "base_letter": "የ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "45c155d7-71c8-49fb-a35a-661a1f0f4e42",
+    "letter": "ኒ",
+    "translit": "ni",
+    "base_letter": "ነ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "461e1797-109e-4d86-8338-f7943d039c10",
+    "letter": "ቂ",
+    "translit": "qi",
+    "base_letter": "ቀ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "4674b606-8270-4a69-8d8b-c437c828e4ea",
+    "letter": "ቖ",
+    "translit": "qo",
+    "base_letter": "ቐ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "47141c88-d630-4ddf-8846-6ffe8526321a",
+    "letter": "ኢ",
+    "translit": "i",
+    "base_letter": "አ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "49538e8e-608a-4c25-bd8f-71567d499cfa",
+    "letter": "ሸ",
+    "translit": "sha",
+    "base_letter": "ሸ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "4bc574c4-1558-47a8-a301-8a03a4db7ae9",
+    "letter": "ጠ",
+    "translit": "t'a",
+    "base_letter": "ጠ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "4cb80692-a72e-42a9-8e13-0d68724b6038",
+    "letter": "ፃ",
+    "translit": "ts'aa",
+    "base_letter": "ፀ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "4d8fab4d-ae95-4a89-92ad-072cbbc2118f",
+    "letter": "ሀ",
+    "translit": "ha",
+    "base_letter": "ሀ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "4f62a70d-9f44-4d7e-94b2-3abfb8be4ed2",
+    "letter": "ዊ",
+    "translit": "wi",
+    "base_letter": "ወ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "510e2546-3842-416a-aa15-a33c1541ec04",
+    "letter": "ኔ",
+    "translit": "nee",
+    "base_letter": "ነ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "540ce81f-a29e-4e4a-9620-ce2ee601fb93",
+    "letter": "ዑ",
+    "translit": "u",
+    "base_letter": "ዐ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "5516878a-ac3e-4b05-82f3-b407097a5f60",
+    "letter": "ቔ",
+    "translit": "qee",
+    "base_letter": "ቐ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "572b46bc-f643-4cb8-b5b2-88b044f4c191",
+    "letter": "ያ",
+    "translit": "yaa",
+    "base_letter": "የ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "57e5a03a-1a2c-4b78-9815-bb8ec10ffc8a",
+    "letter": "መ",
+    "translit": "ma",
+    "base_letter": "መ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "590bdb06-723f-4ffd-9b4b-c46112632a3a",
+    "letter": "ጰ",
+    "translit": "p'a",
+    "base_letter": "ጰ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "5c4e6a42-28b1-4c11-bff1-23c46674f993",
+    "letter": "ሄ",
+    "translit": "hee",
+    "base_letter": "ሀ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "5c5e0895-c25a-4b2e-a1dc-4b0d5cd671e7",
+    "letter": "ፌ",
+    "translit": "fee",
+    "base_letter": "ፈ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "5c78f6e0-d14b-40a7-ad99-bace13b7b239",
+    "letter": "ኚ",
+    "translit": "ni",
+    "base_letter": "ኘ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "5c9d8673-6f74-4c3f-afe9-ff4f31c42323",
+    "letter": "ሑ",
+    "translit": "hu",
+    "base_letter": "ሐ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "5d5e1c6f-331d-4254-8e0a-87f745fcdeef",
+    "letter": "ሬ",
+    "translit": "ree",
+    "base_letter": "ረ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "5e13b300-8863-4ee8-ad49-1f523cdcc4e7",
+    "letter": "ሠ",
+    "translit": "sa",
+    "base_letter": "ሠ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "60659916-eefb-4f90-a43e-d83f4db33de6",
+    "letter": "ቁ",
+    "translit": "qu",
+    "base_letter": "ቀ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "618f3f9d-fb43-44e3-9f3c-1372b8c3bc1b",
+    "letter": "ቱ",
+    "translit": "tu",
+    "base_letter": "ተ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "619b4a23-5234-4de2-af11-ebcc1ac43ba3",
+    "letter": "ቶ",
+    "translit": "to",
+    "base_letter": "ተ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "624e9bfc-87d4-4348-a534-74b0f2bc1200",
+    "letter": "ፔ",
+    "translit": "pee",
+    "base_letter": "ፐ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "625ca9ae-6a9c-4ad3-9cd8-7d73a14183a0",
+    "letter": "ና",
+    "translit": "naa",
+    "base_letter": "ነ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "62644fc2-ba4f-435f-985d-65c7a2cdac50",
+    "letter": "ጊ",
+    "translit": "gi",
+    "base_letter": "ገ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "63ded99d-cdea-4e11-8f37-63bb0f55e26a",
+    "letter": "ዎ",
+    "translit": "wo",
+    "base_letter": "ወ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "643d3d2c-8bb1-45c4-b223-77f598d9b1ee",
+    "letter": "ሥ",
+    "translit": "se",
+    "base_letter": "ሠ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "64e65a38-e7af-4597-9ce3-b8ea42f3fb74",
+    "letter": "ጫ",
+    "translit": "ch'aa",
+    "base_letter": "ጨ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "65f082ec-b480-4329-b00c-daf562a6d43b",
+    "letter": "ጵ",
+    "translit": "p'e",
+    "base_letter": "ጰ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "6646e888-6b8b-41c8-990c-e198f025de07",
+    "letter": "ቼ",
+    "translit": "chee",
+    "base_letter": "ቸ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "66e4afbf-82c6-4482-8525-1ac44c0fd4d9",
+    "letter": "ዞ",
+    "translit": "zo",
+    "base_letter": "ዘ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "66edabf6-b669-4a81-8bd1-e9dcd589f9f5",
+    "letter": "ፕ",
+    "translit": "pe",
+    "base_letter": "ፐ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "686b9181-0386-4604-87f3-ad75716ead71",
+    "letter": "ጩ",
+    "translit": "ch'u",
+    "base_letter": "ጨ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "6ab9558e-4396-43b9-8fd8-de68c76e8b31",
+    "letter": "ቢ",
+    "translit": "bi",
+    "base_letter": "በ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "6ad87e32-6868-477f-9cb6-ec1a2b3c1489",
+    "letter": "ሉ",
+    "translit": "lu",
+    "base_letter": "ለ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "6d32bd15-9134-4190-91c9-bdebd5030215",
+    "letter": "ኩ",
+    "translit": "ku",
+    "base_letter": "ከ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "6db695f7-65f2-4c61-b082-685ca1cc3596",
+    "letter": "ሾ",
+    "translit": "sho",
+    "base_letter": "ሸ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "6dbfaca2-570a-4d6f-9467-5f5b137bf212",
+    "letter": "ፋ",
+    "translit": "faa",
+    "base_letter": "ፈ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "6ebc2e0b-93ab-4d6d-8dc3-902a8eaa37a2",
+    "letter": "ኬ",
+    "translit": "kee",
+    "base_letter": "ከ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "70035ac8-bd06-4de1-8c67-9ed1b5dc8b58",
+    "letter": "የ",
+    "translit": "ya",
+    "base_letter": "የ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "7045c8ab-ba51-4f8e-9005-63bdeef54695",
+    "letter": "ኤ",
+    "translit": "ee",
+    "base_letter": "አ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "721a0c46-e9c1-405d-b94a-a64541332f8c",
+    "letter": "ፆ",
+    "translit": "ts'o",
+    "base_letter": "ፀ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "728a51ad-5778-452c-badd-0b8ded0d0802",
+    "letter": "ሢ",
+    "translit": "si",
+    "base_letter": "ሠ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "741cd3ee-0764-496f-b55c-d19569032ebf",
+    "letter": "ዪ",
+    "translit": "yi",
+    "base_letter": "የ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "776a3b2d-af3a-492e-b7e7-33fa0f3d9072",
+    "letter": "ጻ",
+    "translit": "ts'aa",
+    "base_letter": "ጸ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "77adafb7-a4e8-4d1a-9150-636a60c49eaf",
+    "letter": "ዋ",
+    "translit": "waa",
+    "base_letter": "ወ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "7910ebe6-51c3-4824-8a79-f291e508ad2d",
+    "letter": "ጲ",
+    "translit": "p'i",
+    "base_letter": "ጰ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "795abd5e-c8d3-475c-92e8-468de381ae38",
+    "letter": "ይ",
+    "translit": "ye",
+    "base_letter": "የ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "7ad3b9f7-3fc2-4f7f-875c-10e970717caf",
+    "letter": "ካ",
+    "translit": "kaa",
+    "base_letter": "ከ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "7b323952-ac9c-4eb3-b771-769e75576f45",
+    "letter": "ሎ",
+    "translit": "lo",
+    "base_letter": "ለ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "7d233755-28d8-4656-b6ac-2ccb9475ad08",
+    "letter": "ግ",
+    "translit": "ge",
+    "base_letter": "ገ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "7d65debf-cf2c-4e0e-ac7c-8faef5bcd376",
+    "letter": "ል",
+    "translit": "le",
+    "base_letter": "ለ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "80b075d0-c6c0-4548-a863-fe0254e5eaf1",
+    "letter": "ን",
+    "translit": "ne",
+    "base_letter": "ነ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "81af375b-a19b-4509-98c5-d2afbea58ad8",
+    "letter": "ጳ",
+    "translit": "p'aa",
+    "base_letter": "ጰ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "82e746de-3693-4213-b3d5-8a5267ec4539",
+    "letter": "ጨ",
+    "translit": "ch'a",
+    "base_letter": "ጨ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "846da8b0-922b-4788-acbc-04cc2a8a629c",
+    "letter": "ሌ",
+    "translit": "lee",
+    "base_letter": "ለ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "84b38061-b184-477a-9e08-0c03f8253cec",
+    "letter": "ሻ",
+    "translit": "shaa",
+    "base_letter": "ሸ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "84b38faf-1cf0-44e3-9bde-1524e816e080",
+    "letter": "ኦ",
+    "translit": "o",
+    "base_letter": "አ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "870d752e-e8a1-4721-9036-eb35641e03c7",
+    "letter": "ሶ",
+    "translit": "so",
+    "base_letter": "ሰ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "87360ae7-4fd6-426f-bde1-6a50bc42c438",
+    "letter": "ጂ",
+    "translit": "ji",
+    "base_letter": "ጀ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8740ddc0-9e71-4948-9197-e85d441a8bb0",
+    "letter": "ጃ",
+    "translit": "jaa",
+    "base_letter": "ጀ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8aae7213-f2bc-45b3-b7f8-a28ca9479257",
+    "letter": "ፅ",
+    "translit": "ts'e",
+    "base_letter": "ፀ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8b8a7982-7290-4f20-885e-7b483e1eef7b",
+    "letter": "ዡ",
+    "translit": "zhu",
+    "base_letter": "ዠ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8bb8ed04-f070-4c5e-a85c-efffd1511541",
+    "letter": "ቐ",
+    "translit": "qa",
+    "base_letter": "ቐ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8bc3279d-9d0a-4fcc-8e26-607be27e3c54",
+    "letter": "ቤ",
+    "translit": "bee",
+    "base_letter": "በ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8c895c5b-8707-437a-85ed-87b2131af1c3",
+    "letter": "ኽ",
+    "translit": "khe",
+    "base_letter": "ኸ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8d141b1b-8e94-49ff-8c9b-5d611e149042",
+    "letter": "ጸ",
+    "translit": "ts'a",
+    "base_letter": "ጸ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8d34e9ca-2aa2-4d6f-8481-ec126e8a75ba",
+    "letter": "ጹ",
+    "translit": "ts'u",
+    "base_letter": "ጸ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8d457f68-3c89-45bc-b440-78a0057ae79b",
+    "letter": "ጼ",
+    "translit": "ts'ee",
+    "base_letter": "ጸ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8d530bfc-1fec-42c0-9f66-39374ca6042a",
+    "letter": "ሡ",
+    "translit": "su",
+    "base_letter": "ሠ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8ddc1797-7b20-462f-8d55-8eb0e5a02b6a",
+    "letter": "ኅ",
+    "translit": "he",
+    "base_letter": "ኀ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "8ee1ef17-32df-4ec4-9e83-9592079e3095",
+    "letter": "ክ",
+    "translit": "ke",
+    "base_letter": "ከ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "9058901e-e1a1-40ce-9ccb-cb32b8f74d34",
+    "letter": "ጅ",
+    "translit": "je",
+    "base_letter": "ጀ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "916c456d-38e5-43b2-95c5-74ec9326a1de",
+    "letter": "ዜ",
+    "translit": "zee",
+    "base_letter": "ዘ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "9236c8fd-678d-49a1-b745-8a20c8ac5218",
+    "letter": "ኄ",
+    "translit": "hee",
+    "base_letter": "ኀ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "9304cad7-9ea7-4b06-975d-fc79b3c63db7",
+    "letter": "ፄ",
+    "translit": "ts'ee",
+    "base_letter": "ፀ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "9484bb40-ee2d-46c8-af5b-93b0d96c2d2e",
+    "letter": "ኛ",
+    "translit": "naa",
+    "base_letter": "ኘ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "956ae74c-b2bd-4d1f-826d-27c7395d5f0f",
+    "letter": "ፍ",
+    "translit": "fe",
+    "base_letter": "ፈ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "97e89afd-35e4-4b45-87db-872c4782980b",
+    "letter": "ሊ",
+    "translit": "li",
+    "base_letter": "ለ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "9acc3f3e-d8f6-4d3f-9df1-ca7bfc4b71bf",
+    "letter": "ጪ",
+    "translit": "ch'i",
+    "base_letter": "ጨ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "9b9cb5cc-509d-444a-85c6-2969ddc420ae",
+    "letter": "ከ",
+    "translit": "ka",
+    "base_letter": "ከ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "9d5183eb-b352-4077-9510-c0b246fa83ed",
+    "letter": "ቀ",
+    "translit": "qa",
+    "base_letter": "ቀ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "9dcefa4d-d0dc-48c7-9d11-356ce56db9a3",
+    "letter": "ዴ",
+    "translit": "dee",
+    "base_letter": "ደ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "a14af7b4-cfa2-4ddc-bb0b-be52d98a47d0",
+    "letter": "ፀ",
+    "translit": "ts'a",
+    "base_letter": "ፀ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "a1eb60d4-78c1-40ee-b97d-d0e30857965d",
+    "letter": "ጽ",
+    "translit": "ts'e",
+    "base_letter": "ጸ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "a3b4f11f-8d12-4506-b677-ade038770bb3",
+    "letter": "ዕ",
+    "translit": "e",
+    "base_letter": "ዐ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "a3c56741-4282-4848-bb29-62ee67c45e8f",
+    "letter": "ዲ",
+    "translit": "di",
+    "base_letter": "ደ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "a84edd8e-5c74-4d47-8317-eccbd92476b9",
+    "letter": "ሦ",
+    "translit": "so",
+    "base_letter": "ሠ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "a8aab066-1e2f-4308-bf39-5b898eb30387",
+    "letter": "ሚ",
+    "translit": "mi",
+    "base_letter": "መ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ab1e64b2-06cd-46db-8f36-957057c02c59",
+    "letter": "ጬ",
+    "translit": "ch'ee",
+    "base_letter": "ጨ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ab2d03d1-af12-462d-9b09-264a6bd26875",
+    "letter": "ሂ",
+    "translit": "hi",
+    "base_letter": "ሀ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "af06ed1b-3b06-4f3f-b2b3-f69d57722b68",
+    "letter": "ዱ",
+    "translit": "du",
+    "base_letter": "ደ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "af98d925-5ecc-4c22-9f52-9a63af884ad3",
+    "letter": "ሐ",
+    "translit": "ha",
+    "base_letter": "ሐ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b23861f7-3fd8-4d93-b289-dd7044cea07f",
+    "letter": "ኺ",
+    "translit": "khi",
+    "base_letter": "ኸ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b2844078-d972-4c31-b7d2-564e70e95683",
+    "letter": "ኪ",
+    "translit": "ki",
+    "base_letter": "ከ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b36cf533-30a8-47bd-acaf-2e4d27d4843e",
+    "letter": "ም",
+    "translit": "me",
+    "base_letter": "መ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b3fc0124-276f-431d-84bb-8b809c8141dc",
+    "letter": "ወ",
+    "translit": "wa",
+    "base_letter": "ወ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b4885cc6-b59e-4ebe-a007-948724fd01bb",
+    "letter": "ፊ",
+    "translit": "fi",
+    "base_letter": "ፈ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b4904bac-078b-489e-93fa-df06790d2c71",
+    "letter": "ዣ",
+    "translit": "zhaa",
+    "base_letter": "ዠ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b59dcf7e-9710-453c-a0c3-5f726ecbd0e4",
+    "letter": "ጶ",
+    "translit": "p'o",
+    "base_letter": "ጰ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b657ab72-a705-44d0-b044-0ed8019d9502",
+    "letter": "ኸ",
+    "translit": "kha",
+    "base_letter": "ኸ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b6f349eb-a5dd-4344-ab23-1710a7d14473",
+    "letter": "ዮ",
+    "translit": "yo",
+    "base_letter": "የ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b713aeef-8514-4ab7-801c-0244cd9944e5",
+    "letter": "ሰ",
+    "translit": "sa",
+    "base_letter": "ሰ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b77b8256-a5a1-4363-aedf-06a4dcdff31b",
+    "letter": "ኖ",
+    "translit": "no",
+    "base_letter": "ነ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "b8d2df88-85b2-43f7-b2b1-6c0f680cb51e",
+    "letter": "ፁ",
+    "translit": "ts'u",
+    "base_letter": "ፀ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "bb0c58da-504f-4cb6-b93e-56f1799f4e61",
+    "letter": "ኙ",
+    "translit": "nu",
+    "base_letter": "ኘ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "bc513141-5db8-4c25-aafb-f2391dd4b323",
+    "letter": "ፉ",
+    "translit": "fu",
+    "base_letter": "ፈ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "bf0b625c-91df-4ca3-a652-0b8d6a9553db",
+    "letter": "ቴ",
+    "translit": "tee",
+    "base_letter": "ተ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c254c64b-37f1-44f4-8921-a59d8ddea36a",
+    "letter": "ብ",
+    "translit": "be",
+    "base_letter": "በ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c25fd312-fffe-4217-8ea8-fa490496a8da",
+    "letter": "ኞ",
+    "translit": "no",
+    "base_letter": "ኘ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c28d2141-9585-4857-8c66-61eef6aba8bb",
+    "letter": "ዦ",
+    "translit": "zho",
+    "base_letter": "ዠ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c2dc7b0d-62b2-4afc-839d-871409d22a4a",
+    "letter": "ዐ",
+    "translit": "a",
+    "base_letter": "ዐ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c4ba43a7-df59-4761-9006-73632c4e8f97",
+    "letter": "ሞ",
+    "translit": "mo",
+    "base_letter": "መ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c60346fa-b424-4184-8d37-0d2cc3f1fcd9",
+    "letter": "ሼ",
+    "translit": "shee",
+    "base_letter": "ሸ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c607b642-7fb6-4994-b018-f22a7f1a368d",
+    "letter": "ጆ",
+    "translit": "jo",
+    "base_letter": "ጀ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c643edd0-aed2-44cf-9fb7-502f0f936c00",
+    "letter": "ዓ",
+    "translit": "aa",
+    "base_letter": "ዐ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c6d12dc7-d52e-42b3-b450-fe129de8f6af",
+    "letter": "ቃ",
+    "translit": "qaa",
+    "base_letter": "ቀ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "c94ec8b6-bb97-4ee5-94e5-71214f91c7ca",
+    "letter": "ፖ",
+    "translit": "po",
+    "base_letter": "ፐ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ca0332e0-cd5f-4837-a750-23dcc3e0e667",
+    "letter": "ሃ",
+    "translit": "haa",
+    "base_letter": "ሀ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "caafa160-a36c-4d4a-af16-e18507017a66",
+    "letter": "ተ",
+    "translit": "ta",
+    "base_letter": "ተ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "cad4a66f-eb05-47ae-95a7-07a32eea7e96",
+    "letter": "ኘ",
+    "translit": "na",
+    "base_letter": "ኘ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "cad7fa07-b306-4d2a-91ed-3837daa0f747",
+    "letter": "ኮ",
+    "translit": "ko",
+    "base_letter": "ከ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "cc013747-37e3-4c63-beb6-076576da4abd",
+    "letter": "ባ",
+    "translit": "baa",
+    "base_letter": "በ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "cc03bd8d-b3c5-4275-8c0c-bd5335d1c920",
+    "letter": "ጡ",
+    "translit": "t'u",
+    "base_letter": "ጠ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "cc794c65-8e44-4ff4-9465-9850db4d350c",
+    "letter": "ሜ",
+    "translit": "mee",
+    "base_letter": "መ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "cffb0fef-22e2-4943-b71c-016f2ff911d7",
+    "letter": "ቆ",
+    "translit": "qo",
+    "base_letter": "ቀ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "d25317cd-be84-4b8a-a07b-b6fd7f079ad2",
+    "letter": "ቡ",
+    "translit": "bu",
+    "base_letter": "በ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "d2db643f-2eb9-449a-8fa3-5dc07a61da44",
+    "letter": "ቓ",
+    "translit": "qaa",
+    "base_letter": "ቐ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "d2e09db2-1a65-4fd3-8c0e-5d97d66a7eaf",
+    "letter": "ራ",
+    "translit": "raa",
+    "base_letter": "ረ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "d381e7ac-cf71-47ad-94fc-802eedab4c22",
+    "letter": "ቲ",
+    "translit": "ti",
+    "base_letter": "ተ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "d6291f18-2d5e-47a2-8eb5-1043e2d8940b",
+    "letter": "ሙ",
+    "translit": "mu",
+    "base_letter": "መ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "d9243798-6acb-4b1a-9ed2-77335e142d9a",
+    "letter": "ጎ",
+    "translit": "go",
+    "base_letter": "ገ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "d9829053-f91c-4d54-b075-f8703c8b4903",
+    "letter": "ኜ",
+    "translit": "nee",
+    "base_letter": "ኘ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "da6d826f-bde2-4722-b360-ce7ed67e0073",
+    "letter": "ዒ",
+    "translit": "i",
+    "base_letter": "ዐ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "db019298-2345-4c20-b062-3c18784f0617",
+    "letter": "ቹ",
+    "translit": "chu",
+    "base_letter": "ቸ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "dc165208-3cca-4e53-b8eb-084a1bdaf995",
+    "letter": "ኀ",
+    "translit": "ha",
+    "base_letter": "ኀ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "dc1bfa52-f9ea-4085-86dd-07190052a5f6",
+    "letter": "ጢ",
+    "translit": "t'i",
+    "base_letter": "ጠ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "dd9901b3-9562-4a2b-b828-281ad578efd6",
+    "letter": "ኑ",
+    "translit": "nu",
+    "base_letter": "ነ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "debc2a7b-df9f-41bb-b19b-b2cd50c7e796",
+    "letter": "ኹ",
+    "translit": "khu",
+    "base_letter": "ኸ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "df2682a0-8f67-4e99-a825-cb3aa89b3915",
+    "letter": "ኁ",
+    "translit": "hu",
+    "base_letter": "ኀ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "df4f4f44-86d7-4b9d-bc82-dac043a22647",
+    "letter": "ሴ",
+    "translit": "see",
+    "base_letter": "ሰ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e017068c-4ecb-49d3-90e5-a2f25c191caf",
+    "letter": "ሓ",
+    "translit": "haa",
+    "base_letter": "ሐ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e05ca5a9-123a-4087-988c-0c495261a374",
+    "letter": "ሩ",
+    "translit": "ru",
+    "base_letter": "ረ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e1e68bce-6220-4b57-8efe-546bf222bfc5",
+    "letter": "ቾ",
+    "translit": "cho",
+    "base_letter": "ቸ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e241ba99-d952-4c01-902a-a34a63373bb1",
+    "letter": "ቒ",
+    "translit": "qi",
+    "base_letter": "ቐ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e2a94e1f-42f0-4582-969c-45054681c5bc",
+    "letter": "ሱ",
+    "translit": "su",
+    "base_letter": "ሰ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e356f84a-2f26-4d8a-9749-5324ea752c83",
+    "letter": "ቸ",
+    "translit": "cha",
+    "base_letter": "ቸ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e4c77031-0b6e-41a2-bbde-150fa2f59b0d",
+    "letter": "ሤ",
+    "translit": "see",
+    "base_letter": "ሠ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e535bb93-94bb-4368-a91f-0d001125da52",
+    "letter": "ጦ",
+    "translit": "t'o",
+    "base_letter": "ጠ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e5c154dd-e0df-403e-8cab-5331f04aa04e",
+    "letter": "አ",
+    "translit": "a",
+    "base_letter": "አ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e6e9fc98-1b58-40f4-8d7c-21b38d9b78a8",
+    "letter": "ስ",
+    "translit": "se",
+    "base_letter": "ሰ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e8e4e601-5b78-487c-989a-edee83dfc700",
+    "letter": "ዖ",
+    "translit": "o",
+    "base_letter": "ዐ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "e8f1fc55-bb06-4132-a0bb-be789b965fb1",
+    "letter": "ጭ",
+    "translit": "ch'e",
+    "base_letter": "ጨ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ea850664-6a4c-4008-be71-102caefd78a4",
+    "letter": "ዉ",
+    "translit": "wu",
+    "base_letter": "ወ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "eb049ea1-c4dd-4b00-a009-6d137e3257fd",
+    "letter": "ጾ",
+    "translit": "ts'o",
+    "base_letter": "ጸ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "eb6d72f2-6c48-4c48-9aeb-0857a4dc8691",
+    "letter": "ሖ",
+    "translit": "ho",
+    "base_letter": "ሐ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ed0fdc16-bb36-4d8d-a471-e2dc2db53fa4",
+    "letter": "ሳ",
+    "translit": "saa",
+    "base_letter": "ሰ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ed4f8899-002e-451c-a4c2-1a71d68b0d74",
+    "letter": "በ",
+    "translit": "ba",
+    "base_letter": "በ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ee7012dc-7d1f-4476-8d84-f1443f8efecc",
+    "letter": "ኆ",
+    "translit": "ho",
+    "base_letter": "ኀ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "f03e72e7-4d25-40d1-82b1-2b759dd2db37",
+    "letter": "ሕ",
+    "translit": "he",
+    "base_letter": "ሐ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "f09d0cb6-a44e-48a3-a67d-8b8cf86802cc",
+    "letter": "ቕ",
+    "translit": "qe",
+    "base_letter": "ቐ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "f46c902c-aea9-4384-a846-d728d45644e9",
+    "letter": "ፑ",
+    "translit": "pu",
+    "base_letter": "ፐ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "f5923665-25b2-44c8-9233-a9a7559a96a4",
+    "letter": "ኾ",
+    "translit": "kho",
+    "base_letter": "ኸ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "f81c7d2b-d463-4b28-b1d3-93a07cde7465",
+    "letter": "ሆ",
+    "translit": "ho",
+    "base_letter": "ሀ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "fa5d8235-1ac3-496f-9a7d-961de67f4a0f",
+    "letter": "ዌ",
+    "translit": "wee",
+    "base_letter": "ወ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "fae238d7-3d09-47b6-95b1-f1990bde6fef",
+    "letter": "ፒ",
+    "translit": "pi",
+    "base_letter": "ፐ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "fb070b90-4f79-48ef-bb4c-2ee42d28811c",
+    "letter": "ጉ",
+    "translit": "gu",
+    "base_letter": "ገ",
+    "order_index": 2,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "fb0bc0c7-7d17-450a-825a-5e48d0420fd1",
+    "letter": "ጤ",
+    "translit": "t'ee",
+    "base_letter": "ጠ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "fb3d9538-d370-4758-a4ae-3b6927928367",
+    "letter": "እ",
+    "translit": "e",
+    "base_letter": "አ",
+    "order_index": 6,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "fb900a30-82fe-4449-b56e-ca54fb0e4ac2",
+    "letter": "ቦ",
+    "translit": "bo",
+    "base_letter": "በ",
+    "order_index": 7,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "fbe5069a-1edc-4ecc-97e8-e740e4c41291",
+    "letter": "ማ",
+    "translit": "maa",
+    "base_letter": "መ",
+    "order_index": 4,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "fdd9748d-ef16-4aa1-9f86-30561ab4ba13",
+    "letter": "ጌ",
+    "translit": "gee",
+    "base_letter": "ገ",
+    "order_index": 5,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ff22af96-05c9-4fbb-8d5e-8df2ff4f5984",
+    "letter": "ሲ",
+    "translit": "si",
+    "base_letter": "ሰ",
+    "order_index": 3,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  },
+  {
+    "id": "ff906d3e-df7d-490d-ae35-7c840faee057",
+    "letter": "ዠ",
+    "translit": "zha",
+    "base_letter": "ዠ",
+    "order_index": 1,
+    "audio_key": "",
+    "created_at": "2025-12-26 17:29:41.636902+00"
+  }
+]

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kemey_app/services/supabase/geez_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kemey_app/providers/letter_variants_provider.dart';
 import 'package:kemey_app/widgets/letter_card.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
-class LetterVariantsModal extends StatelessWidget {
+class LetterVariantsModal extends ConsumerWidget {
   final Map<String, dynamic> baseLetter;
 
   const LetterVariantsModal({super.key, required this.baseLetter});
@@ -15,32 +15,39 @@ class LetterVariantsModal extends StatelessWidget {
   );
 
   @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<PostgrestList>(
-      future: GeezService.getBaseLetterVariants(
-        baseLetter['base_letter'].toString(),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final variantsAsync = ref.watch(
+      letterVariantsProvider(baseLetter['base_letter'].toString()),
+    );
+
+    return variantsAsync.when(
+      loading: () => const SizedBox(
+        height: 300,
+        child: Center(child: CircularProgressIndicator()),
       ),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const SizedBox(
-            height: 300,
-            child: Center(child: CircularProgressIndicator()),
-          );
-        }
-
-        final forms = snapshot.data ?? [];
-
+      error: (error, stack) =>
+          SizedBox(height: 300, child: Center(child: Text('Error: $error'))),
+      data: (forms) {
         return SizedBox(
           height: 400,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.only(top: 8, bottom: 24),
+                  width: 40,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 198, 198, 202),
+                    borderRadius: BorderRadius.circular(2.5),
+                  ),
+                ),
                 Text(baseLetter['letter'].toString(), style: _headerTextStyle),
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
                 Expanded(
                   child: GridView.builder(
+                    cacheExtent: 200,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4,

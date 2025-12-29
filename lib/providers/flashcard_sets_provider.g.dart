@@ -6,7 +6,7 @@ part of 'flashcard_sets_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$flashcardSetsHash() => r'e374ccb61eedddcbb194d789cadae82acbd18ed3';
+String _$flashcardSetsHash() => r'344e19826760680f7dc3aa13b2d598f11b6a1107';
 
 /// See also [flashcardSets].
 @ProviderFor(flashcardSets)

@@ -1,16 +1,37 @@
-import './supabase_service.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class GeezService {
+  static List<Map<String, dynamic>>? _cachedData;
+
+  static Future<List<Map<String, dynamic>>> _loadData() async {
+    if (_cachedData != null) {
+      return _cachedData!;
+    }
+
+    final String jsonString = await rootBundle.loadString(
+      'assets/tigrinya_fidel.json',
+    );
+    final List<dynamic> jsonData = json.decode(jsonString);
+    _cachedData = jsonData.cast<Map<String, dynamic>>();
+    return _cachedData!;
+  }
+
   static Future<PostgrestList> getBaseLetters() async {
-    return await supabase.from('tigrinya_fidel').select().eq('order_index', 1);
+    final data = await _loadData();
+    return data.where((item) => item['order_index'] == 1).toList();
   }
 
   static Future<PostgrestList> getBaseLetterVariants(String baseLetter) async {
-    return await supabase
-        .from('tigrinya_fidel')
-        .select()
-        .eq('base_letter', baseLetter)
-        .order('order_index', ascending: true);
+    final data = await _loadData();
+    final variants = data
+        .where((item) => item['base_letter'] == baseLetter)
+        .toList();
+    // Sort by order_index ascending
+    variants.sort(
+      (a, b) => (a['order_index'] as int).compareTo(b['order_index'] as int),
+    );
+    return variants;
   }
 }
