@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
 import 'package:kemey_app/providers/flashcard_carousel_provider.dart';
 import 'package:kemey_app/providers/flashcard_sets_provider.dart';
+import 'package:kemey_app/screens/flashcard_detail_screen.dart';
 import 'package:kemey_app/utils/haptics.dart';
 import 'package:kemey_app/services/flashcard.dart';
 
@@ -13,7 +14,13 @@ class FlashCardCarousel extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentPage = ref.watch(flashcardCarouselCurrentPageProvider);
+    final pageController = ref.watch(flashcardCarouselPageControllerProvider);
     final setsAsync = ref.watch(flashcardSetsProvider);
+
+    void onPageChanged(int page) {
+      selectionClick();
+      ref.read(flashcardCarouselCurrentPageProvider.notifier).setPage(page);
+    }
 
     return setsAsync.when(
       data: (sets) {
@@ -25,40 +32,33 @@ class FlashCardCarousel extends ConsumerWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxHeight: 250),
-                child: NotificationListener<ScrollNotification>(
-                  onNotification: (ScrollNotification notification) {
-                    if (notification is ScrollUpdateNotification) {
-                      final position = notification.metrics.pixels;
-                      final itemExtent = 330.0;
-                      final newPage = (position / itemExtent).round();
-                      if (newPage != safeCurrentPage &&
-                          newPage >= 0 &&
-                          newPage < itemCount) {
-                        selectionClick();
-                        ref
-                            .read(flashcardCarouselCurrentPageProvider.notifier)
-                            .setPage(newPage);
-                      }
-                    }
-                    return false;
-                  },
-                  child: CarouselView(
-                    itemExtent: 330,
-                    shrinkExtent: 200,
-                    children: List<Widget>.generate(itemCount, (int index) {
-                      return FlashcardSetCard(
-                        set: sets[index],
-                        isActive: index == safeCurrentPage,
-                        onTap: () async {
-                          await mediumImpact();
-                        },
-                      );
-                    }),
-                  ),
-                ),
+            SizedBox(
+              height: 250,
+              child: PageView.builder(
+                controller: pageController,
+                onPageChanged: onPageChanged,
+                itemCount: itemCount,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: FlashcardSetCard(
+                      set: sets[index],
+                      isActive: index == safeCurrentPage,
+                      onTap: () async {
+                        await mediumImpact();
+                        if (!context.mounted) return;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => FlashcardDetailScreen(
+                              flashcardSet: sets[index],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
               ),
             ),
             const SizedBox(height: 16),
@@ -108,76 +108,74 @@ class FlashcardSetCard extends StatelessWidget {
       scale: isActive ? 1.0 : 0.98,
       child: Material(
         color: const Color.fromARGB(255, 255, 128, 0),
+        borderRadius: BorderRadius.circular(28),
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(28),
-          child: Ink(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(28)),
-            child: Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            width: 42,
-                            height: 42,
-                            decoration: BoxDecoration(
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: 42,
+                          height: 42,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.16),
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
                               color: Colors.white.withValues(alpha: 0.16),
-                              borderRadius: BorderRadius.circular(14),
-                              border: Border.all(
-                                color: Colors.white.withValues(alpha: 0.16),
-                              ),
-                            ),
-                            child: const Icon(
-                              Icons.collections_bookmark_rounded,
-                              color: Colors.white,
                             ),
                           ),
-                          const Spacer(),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: (textTheme.titleLarge ?? const TextStyle())
-                            .copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: -0.2,
-                            ),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        description,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: (textTheme.bodyMedium ?? const TextStyle())
-                            .copyWith(
-                              color: Colors.white.withValues(alpha: 0.85),
-                              height: 1.15,
-                            ),
-                      ),
-                      const Spacer(),
-                      Row(
-                        children: [
-                          _Stat(
-                            icon: CupertinoIcons.rectangle_stack,
-                            label: '$cardCount cards',
+                          child: const Icon(
+                            Icons.collections_bookmark_rounded,
+                            color: Colors.white,
                           ),
-                          const SizedBox(width: 12),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                        const Spacer(),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: (textTheme.titleLarge ?? const TextStyle())
+                          .copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: -0.2,
+                          ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      description,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: (textTheme.bodyMedium ?? const TextStyle())
+                          .copyWith(
+                            color: Colors.white.withValues(alpha: 0.85),
+                            height: 1.15,
+                          ),
+                    ),
+                    const Spacer(),
+                    Row(
+                      children: [
+                        _Stat(
+                          icon: CupertinoIcons.rectangle_stack,
+                          label: '$cardCount cards',
+                        ),
+                        const SizedBox(width: 12),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

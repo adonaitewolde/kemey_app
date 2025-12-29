@@ -6,6 +6,26 @@ part of 'flashcard_carousel_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+String _$flashcardCarouselPageControllerHash() =>
+    r'74c998b3707284111565ae4209a6046d4c95a3d7';
+
+/// See also [flashcardCarouselPageController].
+@ProviderFor(flashcardCarouselPageController)
+final flashcardCarouselPageControllerProvider =
+    AutoDisposeProvider<PageController>.internal(
+      flashcardCarouselPageController,
+      name: r'flashcardCarouselPageControllerProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$flashcardCarouselPageControllerHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef FlashcardCarouselPageControllerRef =
+    AutoDisposeProviderRef<PageController>;
 String _$flashcardCarouselCurrentPageHash() =>
     r'4c0277bb19b4dd9b373ee6d88552c14fb799b7a2';
 
