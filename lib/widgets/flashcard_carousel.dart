@@ -106,76 +106,77 @@ class FlashcardSetCard extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeOut,
       scale: isActive ? 1.0 : 0.98,
-      child: Material(
-        color: const Color.fromARGB(255, 255, 128, 0),
+      child: ClipRSuperellipse(
         borderRadius: BorderRadius.circular(28),
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(28),
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 42,
-                          height: 42,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.16),
-                            borderRadius: BorderRadius.circular(14),
-                            border: Border.all(
+        child: Material(
+          color: const Color.fromARGB(255, 255, 128, 0),
+          child: InkWell(
+            onTap: onTap,
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 42,
+                            height: 42,
+                            decoration: BoxDecoration(
                               color: Colors.white.withValues(alpha: 0.16),
+                              borderRadius: BorderRadius.circular(14),
+                              border: Border.all(
+                                color: Colors.white.withValues(alpha: 0.16),
+                              ),
+                            ),
+                            child: const Icon(
+                              Icons.collections_bookmark_rounded,
+                              color: Colors.white,
                             ),
                           ),
-                          child: const Icon(
-                            Icons.collections_bookmark_rounded,
-                            color: Colors.white,
+                          const Spacer(),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: (textTheme.titleLarge ?? const TextStyle())
+                            .copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: -0.2,
+                            ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: (textTheme.bodyMedium ?? const TextStyle())
+                            .copyWith(
+                              color: Colors.white.withValues(alpha: 0.85),
+                              height: 1.15,
+                            ),
+                      ),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          _Stat(
+                            icon: CupertinoIcons.rectangle_stack,
+                            label: '$cardCount cards',
                           ),
-                        ),
-                        const Spacer(),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    Text(
-                      title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: (textTheme.titleLarge ?? const TextStyle())
-                          .copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: -0.2,
-                          ),
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      description,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: (textTheme.bodyMedium ?? const TextStyle())
-                          .copyWith(
-                            color: Colors.white.withValues(alpha: 0.85),
-                            height: 1.15,
-                          ),
-                    ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        _Stat(
-                          icon: CupertinoIcons.rectangle_stack,
-                          label: '$cardCount cards',
-                        ),
-                        const SizedBox(width: 12),
-                      ],
-                    ),
-                  ],
+                          const SizedBox(width: 12),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

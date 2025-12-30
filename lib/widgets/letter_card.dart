@@ -27,7 +27,7 @@ class LetterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      shape: RoundedRectangleBorder(
+      shape: RoundedSuperellipseBorder(
         borderRadius: BorderRadius.circular(20),
         side: const BorderSide(
           color: Color.fromARGB(255, 206, 210, 220),
