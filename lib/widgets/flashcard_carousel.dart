@@ -31,7 +31,17 @@ class FlashCardCarousel extends ConsumerWidget {
 
         return Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(
+              'Practice your skills!',
+
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontFamily: 'Poppins',
+                letterSpacing: -0.5,
+              ),
+            ),
+            const SizedBox(height: 20),
             SizedBox(
               height: 250,
               child: PageView.builder(
@@ -107,7 +117,7 @@ class FlashcardSetCard extends StatelessWidget {
       curve: Curves.easeOut,
       scale: isActive ? 1.0 : 0.98,
       child: ClipRSuperellipse(
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(32),
         child: Material(
           color: const Color.fromARGB(255, 255, 128, 0),
           child: InkWell(

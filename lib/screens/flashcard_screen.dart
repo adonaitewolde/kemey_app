@@ -6,8 +6,9 @@ class FlashcardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: FlashCardCarousel()
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 100, 0, 0),
+      child: const FlashCardCarousel(),
     );
   }
 }
