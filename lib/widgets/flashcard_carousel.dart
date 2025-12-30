@@ -119,26 +119,6 @@ class FlashcardSetCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Container(
-                            width: 42,
-                            height: 42,
-                            decoration: BoxDecoration(
-                              color: Colors.white.withValues(alpha: 0.16),
-                              borderRadius: BorderRadius.circular(14),
-                              border: Border.all(
-                                color: Colors.white.withValues(alpha: 0.16),
-                              ),
-                            ),
-                            child: const Icon(
-                              Icons.collections_bookmark_rounded,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const Spacer(),
-                        ],
-                      ),
                       const SizedBox(height: 16),
                       Text(
                         title,
@@ -175,6 +155,7 @@ class FlashcardSetCard extends StatelessWidget {
                     ],
                   ),
                 ),
+                Positioned(bottom: 16, right: 18, child: _PlayButton()),
               ],
             ),
           ),
@@ -206,6 +187,40 @@ class _Stat extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _PlayButton extends StatelessWidget {
+  const _PlayButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            CupertinoIcons.play_fill,
+            size: 16,
+            color: const Color.fromARGB(255, 255, 128, 0),
+          ),
+          const SizedBox(width: 6),
+          Text(
+            'Start Learning',
+            style: TextStyle(
+              color: const Color.fromARGB(255, 255, 128, 0),
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
