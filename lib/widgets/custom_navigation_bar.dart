@@ -32,7 +32,7 @@ class CustomNavigationBar extends ConsumerWidget {
             CupertinoIcons.collections_solid,
             color: Color.fromARGB(255, 255, 120, 2),
           ),
-          label: 'Flashcards',
+          label: 'Practice',
         ),
         NavigationDestination(
           icon: Icon(CupertinoIcons.book),
