@@ -43,7 +43,7 @@ class FlashCardCarousel extends ConsumerWidget {
             ),
             const SizedBox(height: 20),
             SizedBox(
-              height: 250,
+              height: 225,
               child: PageView.builder(
                 controller: pageController,
                 onPageChanged: onPageChanged,
@@ -152,20 +152,15 @@ class FlashcardSetCard extends StatelessWidget {
                               height: 1.15,
                             ),
                       ),
-                      const Spacer(),
-                      Row(
-                        children: [
-                          _Stat(
-                            icon: CupertinoIcons.rectangle_stack,
-                            label: '$cardCount cards',
-                          ),
-                          const SizedBox(width: 12),
-                        ],
+                      _Stat(
+                        icon: CupertinoIcons.rectangle_stack,
+                        label: '$cardCount cards',
                       ),
                     ],
                   ),
                 ),
-                Positioned(bottom: 16, right: 18, child: _PlayButton()),
+                Positioned(bottom: 20, right: 18, child: _PlayButton()),
+                Positioned(bottom: 20, left: 18, child: _ProgressCircle()),
               ],
             ),
           ),
@@ -173,6 +168,79 @@ class FlashcardSetCard extends StatelessWidget {
       ),
     );
   }
+}
+
+class _ProgressCircle extends StatelessWidget {
+  const _ProgressCircle();
+
+  @override
+  Widget build(BuildContext context) {
+    const progress = 0.3; // 30% hardcoded
+
+    return SizedBox(
+      width: 72,
+      height: 72,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          CustomPaint(
+            size: const Size(72, 72),
+            painter: _ProgressPainter(progress: progress),
+          ),
+          Text(
+            '${(progress * 100).toInt()}%',
+            style: const TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ProgressPainter extends CustomPainter {
+  const _ProgressPainter({required this.progress});
+
+  final double progress;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width / 2, size.height / 2);
+    final radius = (size.width / 2) - 8;
+    const strokeWidth = 8.0;
+
+    // Background circle
+    final backgroundPaint = Paint()
+      ..color = Colors.white.withValues(alpha: 0.3)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = strokeWidth
+      ..strokeCap = StrokeCap.round;
+
+    canvas.drawCircle(center, radius, backgroundPaint);
+
+    // Progress arc
+    final progressPaint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = strokeWidth
+      ..strokeCap = StrokeCap.round;
+
+    const startAngle = -90 * (3.14159 / 180); // Start at top
+    final sweepAngle = 2 * 3.14159 * progress;
+
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      startAngle,
+      sweepAngle,
+      false,
+      progressPaint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 class _Stat extends StatelessWidget {
@@ -183,20 +251,23 @@ class _Stat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, size: 16, color: Colors.white.withValues(alpha: 0.9)),
-        const SizedBox(width: 6),
-        Text(
-          label,
-          style: TextStyle(
-            color: Colors.white.withValues(alpha: 0.9),
-            fontWeight: FontWeight.w600,
-            fontSize: 12,
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 16, color: Colors.white.withValues(alpha: 0.9)),
+          const SizedBox(width: 6),
+          Text(
+            label,
+            style: TextStyle(
+              color: Colors.white.withValues(alpha: 0.9),
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -217,16 +288,16 @@ class _PlayButton extends StatelessWidget {
         children: [
           Icon(
             CupertinoIcons.play_fill,
-            size: 16,
+            size: 20,
             color: const Color.fromARGB(255, 255, 128, 0),
           ),
           const SizedBox(width: 6),
           Text(
-            'Start Learning',
+            'Start',
             style: TextStyle(
               color: const Color.fromARGB(255, 255, 128, 0),
               fontWeight: FontWeight.w600,
-              fontSize: 12,
+              fontSize: 14,
             ),
           ),
         ],
