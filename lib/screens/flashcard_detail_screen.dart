@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
 
-/// Detail screen for a flashcard set.
-/// Currently empty — ready for future implementation.
 class FlashcardDetailScreen extends StatelessWidget {
   const FlashcardDetailScreen({super.key, required this.flashcardSet});
 
