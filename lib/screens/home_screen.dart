@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../providers/nav_bar_provider.dart';
 import '../widgets/custom_navigation_bar.dart';
 import 'flashcard_screen.dart';
@@ -33,6 +34,26 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Hello World!'));
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SvgPicture.asset('assets/icons/flame.svg', width: 26, height: 26),
+            const SizedBox(width: 8),
+            const Text('2', style: TextStyle(fontSize: 20)),
+            const SizedBox(width: 24),
+            SvgPicture.asset(
+              'assets/icons/coffe_bean.svg',
+              width: 26,
+              height: 26,
+            ),
+            const SizedBox(width: 8),
+            const Text('225', style: TextStyle(fontSize: 20)),
+          ],
+        ),
+      ),
+      body: const Center(child: Text('Hello World!')),
+    );
   }
 }
