@@ -28,7 +28,6 @@ class HomeScreen extends ConsumerWidget {
   }
 }
 
-// Separater Widget für den Home-Inhalt
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
 

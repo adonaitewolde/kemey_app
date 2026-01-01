@@ -63,7 +63,6 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
 
           return Column(
             children: [
-              // Progress bar
               Padding(
                 padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
                 child: ClipRRect(
@@ -89,7 +88,6 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                 ),
               ),
               const SizedBox(height: 24),
-              // Card swiper
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -147,13 +145,11 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                   ),
                 ),
               ),
-              // Action buttons
               Padding(
                 padding: const EdgeInsets.all(24),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    // Undo button
                     IconButton(
                       onPressed: controller.undo,
                       icon: const Icon(
@@ -166,7 +162,6 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                         shape: const CircleBorder(),
                       ),
                     ),
-                    // Swipe left (don't know)
                     IconButton(
                       onPressed: () =>
                           controller.swipe(CardSwiperDirection.left),
@@ -181,7 +176,6 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                         shape: const CircleBorder(),
                       ),
                     ),
-                    // Swipe right (know)
                     IconButton(
                       onPressed: () =>
                           controller.swipe(CardSwiperDirection.right),

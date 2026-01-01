@@ -175,7 +175,7 @@ class _ProgressCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const progress = 0.3; // 30% hardcoded
+    const progress = 0.3;
 
     return SizedBox(
       width: 72,
@@ -211,7 +211,6 @@ class _ProgressPainter extends CustomPainter {
     final radius = (size.width / 2) - 8;
     const strokeWidth = 8.0;
 
-    // Background circle
     final backgroundPaint = Paint()
       ..color = Colors.white.withValues(alpha: 0.3)
       ..style = PaintingStyle.stroke
@@ -220,14 +219,13 @@ class _ProgressPainter extends CustomPainter {
 
     canvas.drawCircle(center, radius, backgroundPaint);
 
-    // Progress arc
     final progressPaint = Paint()
       ..color = Colors.white
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
 
-    const startAngle = -90 * (3.14159 / 180); // Start at top
+    const startAngle = -90 * (3.14159 / 180);
     final sweepAngle = 2 * 3.14159 * progress;
 
     canvas.drawArc(

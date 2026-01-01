@@ -40,14 +40,10 @@ class Flashcard {
   }
 
   factory Flashcard.fromJson(Map<String, dynamic> json) {
-    // Be tolerant: Supabase returns snake_case keys, but allow fallbacks.
     final id = _asString(json['id'] ?? json['uuid']);
     final setId = _asString(json['set_id'] ?? json['setId']);
     final geezText = _asString(
-      json['geez_text'] ??
-          json['geezText'] ??
-          json['front'] ??
-          json['text'],
+      json['geez_text'] ?? json['geezText'] ?? json['front'] ?? json['text'],
     );
     final translit = _asString(
       json['translit'] ?? json['transliteration'] ?? json['latin'],
@@ -81,4 +77,3 @@ class Flashcard {
     };
   }
 }
-

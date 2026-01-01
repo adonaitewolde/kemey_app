@@ -4,9 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kemey_app/models/flashcard.dart';
 
-/// A single flashcard that can be flipped (front/back) with a 3D animation.
-///
-/// UI-only: no data fetching or business logic.
 class FlashcardFlipCard extends StatefulWidget {
   const FlashcardFlipCard({super.key, required this.flashcard});
 

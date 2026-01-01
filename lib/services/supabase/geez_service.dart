@@ -28,7 +28,6 @@ class GeezService {
     final variants = data
         .where((item) => item['base_letter'] == baseLetter)
         .toList();
-    // Sort by order_index ascending
     variants.sort(
       (a, b) => (a['order_index'] as int).compareTo(b['order_index'] as int),
     );

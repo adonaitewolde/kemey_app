@@ -61,8 +61,8 @@ class GeezScreen extends StatelessWidget {
               selectionClick();
               showModalBottomSheet<void>(
                 context: context,
-                isScrollControlled: true, // Enable smooth dragging
-                useSafeArea: true, // Better handling on different devices
+                isScrollControlled: true,
+                useSafeArea: true,
                 builder: (context) => LetterVariantsModal(baseLetter: item),
               );
             },

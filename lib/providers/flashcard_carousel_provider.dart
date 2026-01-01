@@ -23,7 +23,6 @@ PageController flashcardCarouselPageController(
     initialPage: initialPage,
   );
 
-  // Auto-dispose when provider is disposed
   ref.onDispose(() => controller.dispose());
 
   return controller;
