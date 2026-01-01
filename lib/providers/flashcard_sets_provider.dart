@@ -1,12 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
-import 'package:kemey_app/services/supabase/flashcard_service.dart';
+import 'package:kemey_app/providers/flashcard_service_provider.dart';
 
 part 'flashcard_sets_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 Future<List<FlashcardSet>> flashcardSets(FlashcardSetsRef ref) async {
-  final service = FlashcardService();
+  final service = ref.watch(flashcardServiceProvider);
   final response = await service.getFlashCardSets();
 
   final sets = <FlashcardSet>[];

@@ -1,5 +1,8 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
+/// UI-only helpers for rendering page indicators (used by carousel-style widgets).
+///
+/// Note: This lives in `widgets/` (not `services/`) because it is pure UI.
 Widget buildPageIndicators(
   BuildContext context,
   int currentPage,

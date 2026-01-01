@@ -17,7 +17,7 @@ class FlashcardService {
     return response.length;
   }
 
-  static Future<PostgrestList> getFlashCards(String flashCardSet) async {
+  Future<PostgrestList> getFlashCards(String flashCardSet) async {
     return await supabase
         .from('flashcards')
         .select()

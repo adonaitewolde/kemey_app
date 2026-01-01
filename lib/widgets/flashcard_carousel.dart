@@ -6,7 +6,7 @@ import 'package:kemey_app/providers/flashcard_carousel_provider.dart';
 import 'package:kemey_app/providers/flashcard_sets_provider.dart';
 import 'package:kemey_app/screens/flashcard_detail_screen.dart';
 import 'package:kemey_app/utils/haptics.dart';
-import 'package:kemey_app/services/flashcard.dart';
+import 'package:kemey_app/widgets/page_indicators.dart';
 
 class FlashCardCarousel extends ConsumerWidget {
   const FlashCardCarousel({super.key});
