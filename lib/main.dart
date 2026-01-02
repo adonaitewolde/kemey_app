@@ -8,6 +8,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
   await initializeSupabase();
+  await ensureSignedIn();
   runApp(const ProviderScope(child: MainApp()));
 }
 

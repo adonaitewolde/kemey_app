@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
 import 'package:kemey_app/providers/flashcards_provider.dart';
+import 'package:kemey_app/providers/flashcard_progress_provider.dart';
 import 'package:kemey_app/widgets/flashcard_flip_card.dart';
 
 class FlashcardDetailScreen extends ConsumerStatefulWidget {
@@ -19,6 +20,7 @@ class FlashcardDetailScreen extends ConsumerStatefulWidget {
 class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
   final CardSwiperController controller = CardSwiperController();
   int currentIndex = 0;
+  bool _didJumpToStart = false;
 
   @override
   void dispose() {
@@ -26,10 +28,40 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
     super.dispose();
   }
 
+  int _computeStartIndex({
+    required List<dynamic> flashcardsIdsInOrder,
+    required Map<String, dynamic> progressById,
+  }) {
+    // Unseen: no progress row
+    for (var i = 0; i < flashcardsIdsInOrder.length; i++) {
+      final id = flashcardsIdsInOrder[i] as String;
+      if (!progressById.containsKey(id)) return i;
+    }
+
+    // Due: next_review_at <= now
+    final now = DateTime.now().toUtc();
+    for (var i = 0; i < flashcardsIdsInOrder.length; i++) {
+      final id = flashcardsIdsInOrder[i] as String;
+      final p = progressById[id];
+      if (p is Map<String, dynamic>) {
+        final next = p['next_review_at'];
+        if (next != null) {
+          final nextDt = DateTime.tryParse(next.toString())?.toUtc();
+          if (nextDt != null && !nextDt.isAfter(now)) return i;
+        }
+      }
+    }
+
+    return 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     final flashcardsAsync = ref.watch(
       flashcardsProvider(widget.flashcardSet.id),
+    );
+    final progressAsync = ref.watch(
+      flashcardProgressControllerProvider(widget.flashcardSet.id),
     );
 
     return Scaffold(
@@ -60,6 +92,29 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
               ),
             );
           }
+
+          // Jump to the first unseen (or due) card once progress is loaded.
+          progressAsync.whenData((progressMap) {
+            if (_didJumpToStart) return;
+            final ids = flashcards.map((f) => f.id).toList();
+            final progressById = <String, dynamic>{
+              for (final e in progressMap.entries) e.key: e.value.toJson(),
+            };
+
+            final startIndex = _computeStartIndex(
+              flashcardsIdsInOrder: ids,
+              progressById: progressById,
+            );
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (_didJumpToStart) return;
+              _didJumpToStart = true;
+              controller.moveTo(startIndex);
+              if (!mounted) return;
+              setState(() {
+                currentIndex = startIndex;
+              });
+            });
+          });
 
           return Column(
             children: [
@@ -100,40 +155,32 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                     backCardOffset: const Offset(0, 40),
                     padding: const EdgeInsets.all(0),
                     onSwipe: (previousIndex, currentIndex, direction) {
+                      final swipedCardId = flashcards[previousIndex].id;
+                      final progressController = ref.read(
+                        flashcardProgressControllerProvider(
+                          widget.flashcardSet.id,
+                        ).notifier,
+                      );
+
+                      if (direction == CardSwiperDirection.left) {
+                        progressController.recordReview(
+                          flashcardId: swipedCardId,
+                          rating: 0,
+                        );
+                      } else if (direction == CardSwiperDirection.right) {
+                        progressController.recordReview(
+                          flashcardId: swipedCardId,
+                          rating: 2,
+                        );
+                      }
+
                       setState(() {
                         this.currentIndex = currentIndex ?? previousIndex + 1;
                       });
                       return true;
                     },
                     onEnd: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: const Text('Fertig! 🎉'),
-                          content: const Text(
-                            'Du hast alle Karteikarten durchgearbeitet!',
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text('Zurück'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                                setState(() {
-                                  currentIndex = 0;
-                                });
-                                controller.moveTo(0);
-                              },
-                              child: const Text('Nochmal'),
-                            ),
-                          ],
-                        ),
-                      );
+                      Navigator.pop(context);
                     },
                     cardBuilder:
                         (context, index, percentThresholdX, percentThresholdY) {

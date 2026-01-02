@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
 import 'package:kemey_app/providers/flashcard_carousel_provider.dart';
 import 'package:kemey_app/providers/flashcard_sets_provider.dart';
+import 'package:kemey_app/providers/flashcard_set_progress_provider.dart';
 import 'package:kemey_app/screens/flashcard_detail_screen.dart';
 import 'package:kemey_app/utils/haptics.dart';
 import 'package:kemey_app/widgets/page_indicators.dart';
@@ -49,11 +50,20 @@ class FlashCardCarousel extends ConsumerWidget {
                 onPageChanged: onPageChanged,
                 itemCount: itemCount,
                 itemBuilder: (context, index) {
+                  final progressAsync = ref.watch(
+                    flashcardSetProgressProvider(sets[index].id),
+                  );
+
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: FlashcardSetCard(
                       set: sets[index],
                       isActive: index == safeCurrentPage,
+                      progress: progressAsync.when(
+                        data: (p) => p,
+                        loading: () => 0.0,
+                        error: (e, st) => 0.0,
+                      ),
                       onTap: () async {
                         await mediumImpact();
                         if (!context.mounted) return;
@@ -97,11 +107,13 @@ class FlashcardSetCard extends StatelessWidget {
     super.key,
     required this.set,
     required this.isActive,
+    required this.progress,
     this.onTap,
   });
 
   final FlashcardSet set;
   final bool isActive;
+  final double progress;
   final VoidCallback? onTap;
 
   @override
@@ -160,7 +172,11 @@ class FlashcardSetCard extends StatelessWidget {
                   ),
                 ),
                 Positioned(bottom: 16, right: 18, child: _PlayButton()),
-                Positioned(bottom: 16, left: 18, child: _ProgressCircle()),
+                Positioned(
+                  bottom: 16,
+                  left: 18,
+                  child: _ProgressCircle(progress: progress),
+                ),
               ],
             ),
           ),
@@ -171,11 +187,13 @@ class FlashcardSetCard extends StatelessWidget {
 }
 
 class _ProgressCircle extends StatelessWidget {
-  const _ProgressCircle();
+  const _ProgressCircle({required this.progress});
+
+  final double progress;
 
   @override
   Widget build(BuildContext context) {
-    const progress = 0.3;
+    final clamped = progress.clamp(0.0, 1.0);
 
     return SizedBox(
       width: 72,
@@ -185,10 +203,10 @@ class _ProgressCircle extends StatelessWidget {
         children: [
           CustomPaint(
             size: const Size(72, 72),
-            painter: _ProgressPainter(progress: progress),
+            painter: _ProgressPainter(progress: clamped),
           ),
           Text(
-            '${(progress * 100).toInt()}%',
+            '${(clamped * 100).toInt()}%',
             style: const TextStyle(
               color: Color.fromARGB(255, 255, 255, 255),
               fontSize: 16,

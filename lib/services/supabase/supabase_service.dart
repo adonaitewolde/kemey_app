@@ -10,4 +10,7 @@ Future<void> initializeSupabase() async {
 
 SupabaseClient get supabase => Supabase.instance.client;
 
-
+Future<void> ensureSignedIn() async {
+  if (supabase.auth.currentSession != null) return;
+  await supabase.auth.signInAnonymously();
+}
