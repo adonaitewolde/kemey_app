@@ -169,11 +169,11 @@ class _FlashcardFront extends StatelessWidget {
           child: IconButton(
             onPressed: onToggleMarked,
             icon: Icon(
-              marked ? CupertinoIcons.star_fill : CupertinoIcons.star,
-              size: 32,
+              marked ? Icons.star_rounded : Icons.star_border_rounded,
+              size: 40,
             ),
             style: IconButton.styleFrom(
-              iconSize: 32,
+              iconSize: 40,
               foregroundColor: marked
                   ? const Color.fromARGB(255, 255, 128, 0)
                   : Colors.grey,
@@ -251,11 +251,11 @@ class _FlashcardBack extends StatelessWidget {
           child: IconButton(
             onPressed: onToggleMarked,
             icon: Icon(
-              marked ? CupertinoIcons.star_fill : CupertinoIcons.star,
-              size: 32,
+              marked ? Icons.star_rounded : Icons.star_border_rounded,
+              size: 40,
               color: Colors.white,
             ),
-            style: IconButton.styleFrom(iconSize: 32),
+            style: IconButton.styleFrom(iconSize: 40),
           ),
         ),
       ],
