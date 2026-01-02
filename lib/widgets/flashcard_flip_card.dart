@@ -5,9 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:kemey_app/models/flashcard.dart';
 
 class FlashcardFlipCard extends StatefulWidget {
-  const FlashcardFlipCard({super.key, required this.flashcard});
+  const FlashcardFlipCard({
+    super.key,
+    required this.flashcard,
+    this.onToggleMarked,
+    this.marked = false,
+  });
 
   final Flashcard flashcard;
+  final VoidCallback? onToggleMarked;
+  final bool marked;
 
   @override
   State<FlashcardFlipCard> createState() => _FlashcardFlipCardState();
@@ -76,11 +83,19 @@ class _FlashcardFlipCardState extends State<FlashcardFlipCard>
                 ),
                 clipBehavior: Clip.antiAlias,
                 child: showFront
-                    ? _FlashcardFront(flashcard: widget.flashcard)
+                    ? _FlashcardFront(
+                        flashcard: widget.flashcard,
+                        marked: widget.marked,
+                        onToggleMarked: widget.onToggleMarked,
+                      )
                     : Transform(
                         alignment: Alignment.center,
                         transform: Matrix4.identity()..rotateY(math.pi),
-                        child: _FlashcardBack(flashcard: widget.flashcard),
+                        child: _FlashcardBack(
+                          flashcard: widget.flashcard,
+                          marked: widget.marked,
+                          onToggleMarked: widget.onToggleMarked,
+                        ),
                       ),
               ),
             );
@@ -92,108 +107,158 @@ class _FlashcardFlipCardState extends State<FlashcardFlipCard>
 }
 
 class _FlashcardFront extends StatelessWidget {
-  const _FlashcardFront({required this.flashcard});
+  const _FlashcardFront({
+    required this.flashcard,
+    required this.marked,
+    required this.onToggleMarked,
+  });
 
   final Flashcard flashcard;
+  final bool marked;
+  final VoidCallback? onToggleMarked;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      key: const ValueKey('front'),
-      width: double.infinity,
-      height: double.infinity,
-      padding: const EdgeInsets.all(32),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(
-            CupertinoIcons.square_stack_3d_up,
-            size: 48,
-            color: Color.fromARGB(255, 255, 128, 0),
+    return Stack(
+      children: [
+        Container(
+          key: const ValueKey('front'),
+          width: double.infinity,
+          height: double.infinity,
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                CupertinoIcons.square_stack_3d_up,
+                size: 48,
+                color: Color.fromARGB(255, 255, 128, 0),
+              ),
+              const SizedBox(height: 32),
+              Text(
+                flashcard.geezText.isNotEmpty ? flashcard.geezText : '—',
+                style: const TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'NotoSansEthiopic',
+                  color: Colors.black87,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                flashcard.translit.isNotEmpty ? flashcard.translit : ' ',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey[600],
+                  fontStyle: FontStyle.italic,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const Spacer(),
+              Text(
+                'Tap to flip',
+                style: TextStyle(fontSize: 14, color: Colors.grey[400]),
+              ),
+            ],
           ),
-          const SizedBox(height: 32),
-          Text(
-            flashcard.geezText.isNotEmpty ? flashcard.geezText : '—',
-            style: const TextStyle(
-              fontSize: 48,
-              fontWeight: FontWeight.w600,
-              fontFamily: 'NotoSansEthiopic',
-              color: Colors.black87,
+        ),
+        Positioned(
+          top: 24,
+          right: 24,
+          child: IconButton(
+            onPressed: onToggleMarked,
+            icon: Icon(
+              marked ? CupertinoIcons.star_fill : CupertinoIcons.star,
+              size: 32,
             ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            flashcard.translit.isNotEmpty ? flashcard.translit : ' ',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.grey[600],
-              fontStyle: FontStyle.italic,
+            style: IconButton.styleFrom(
+              iconSize: 32,
+              foregroundColor: marked
+                  ? const Color.fromARGB(255, 255, 128, 0)
+                  : Colors.grey,
             ),
-            textAlign: TextAlign.center,
           ),
-          const Spacer(),
-          Text(
-            'Tap to flip',
-            style: TextStyle(fontSize: 14, color: Colors.grey[400]),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
 
 class _FlashcardBack extends StatelessWidget {
-  const _FlashcardBack({required this.flashcard});
+  const _FlashcardBack({
+    required this.flashcard,
+    required this.marked,
+    required this.onToggleMarked,
+  });
 
   final Flashcard flashcard;
+  final bool marked;
+  final VoidCallback? onToggleMarked;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      key: const ValueKey('back'),
-      width: double.infinity,
-      height: double.infinity,
-      padding: const EdgeInsets.all(32),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color.fromARGB(255, 255, 128, 0),
-            Color.fromARGB(255, 255, 100, 0),
-          ],
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(
-            CupertinoIcons.checkmark_seal_fill,
-            size: 48,
-            color: Colors.white,
+    return Stack(
+      children: [
+        Container(
+          key: const ValueKey('back'),
+          width: double.infinity,
+          height: double.infinity,
+          padding: const EdgeInsets.all(32),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color.fromARGB(255, 255, 128, 0),
+                Color.fromARGB(255, 255, 100, 0),
+              ],
+            ),
           ),
-          const SizedBox(height: 32),
-          Text(
-            flashcard.back.isNotEmpty ? flashcard.back : '—',
-            style: const TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.w600,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                CupertinoIcons.checkmark_seal_fill,
+                size: 48,
+                color: Colors.white,
+              ),
+              const SizedBox(height: 32),
+              Text(
+                flashcard.back.isNotEmpty ? flashcard.back : '—',
+                style: const TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const Spacer(),
+              Text(
+                'Tap to flip',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white.withValues(alpha: 0.7),
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          top: 24,
+          right: 24,
+          child: IconButton(
+            onPressed: onToggleMarked,
+            icon: Icon(
+              marked ? CupertinoIcons.star_fill : CupertinoIcons.star,
+              size: 32,
               color: Colors.white,
             ),
-            textAlign: TextAlign.center,
+            style: IconButton.styleFrom(iconSize: 32),
           ),
-          const Spacer(),
-          Text(
-            'Tap to flip',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.white.withValues(alpha: 0.7),
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

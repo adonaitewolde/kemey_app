@@ -157,7 +157,7 @@ class _FlashcardProgressForSetProviderElement
 }
 
 String _$flashcardProgressControllerHash() =>
-    r'14f7bce8525b9c2aa4bb8176282a611954d95132';
+    r'3c9c84afe7203195f5a21a0412dcda772cdfcd8d';
 
 abstract class _$FlashcardProgressController
     extends BuildlessAutoDisposeAsyncNotifier<Map<String, FlashcardProgress>> {

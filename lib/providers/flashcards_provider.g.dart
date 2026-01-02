@@ -6,7 +6,7 @@ part of 'flashcards_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$flashcardsHash() => r'764ae91eb3022a93c41ffb92661ade53765110f7';
+String _$flashcardsHash() => r'e35ef954d783937821fee8e6cfaac712b14e68ac';
 
 /// Copied from Dart SDK
 class _SystemHash {

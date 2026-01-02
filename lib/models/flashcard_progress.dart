@@ -13,6 +13,7 @@ class FlashcardProgress {
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.marked = false,
   });
 
   final String? id;
@@ -25,6 +26,7 @@ class FlashcardProgress {
   final DateTime nextReviewAt;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final bool marked;
 
   static String _asString(dynamic v) => v?.toString() ?? '';
 
@@ -39,6 +41,12 @@ class FlashcardProgress {
     final s = v?.toString();
     if (s == null || s.isEmpty) return DateTime.now().toUtc();
     return DateTime.parse(s).toUtc();
+  }
+
+  static bool _asBool(dynamic v) {
+    if (v is bool) return v;
+    final s = v?.toString().toLowerCase();
+    return s == 'true' || s == '1' || s == 'yes';
   }
 
   factory FlashcardProgress.fromJson(Map<String, dynamic> json) {
@@ -59,6 +67,7 @@ class FlashcardProgress {
       updatedAt: json['updated_at'] == null
           ? null
           : _asDateTime(json['updated_at']),
+      marked: _asBool(json['marked']),
     );
   }
 
@@ -71,6 +80,7 @@ class FlashcardProgress {
       'repetitions': repetitions,
       'last_reviewed_at': lastReviewedAt.toIso8601String(),
       'next_review_at': nextReviewAt.toIso8601String(),
+      'marked': marked,
     };
 
     // Only include id if it exists (for updates)
@@ -93,6 +103,7 @@ class FlashcardProgress {
     DateTime? nextReviewAt,
     DateTime? createdAt,
     DateTime? updatedAt,
+    bool? marked,
   }) {
     return FlashcardProgress(
       id: id ?? this.id,
@@ -105,6 +116,7 @@ class FlashcardProgress {
       nextReviewAt: nextReviewAt ?? this.nextReviewAt,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      marked: marked ?? this.marked,
     );
   }
 }

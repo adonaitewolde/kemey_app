@@ -6,7 +6,7 @@ part of 'flashcard_service_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$flashcardServiceHash() => r'389cd50c9aaf78e565b458229c5decb8048e55fe';
+String _$flashcardServiceHash() => r'37ba7107b6832655aa2accd1117c2b5a1ce2035d';
 
 /// See also [flashcardService].
 @ProviderFor(flashcardService)

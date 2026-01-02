@@ -7,7 +7,7 @@ part of 'flashcard_carousel_provider.dart';
 // **************************************************************************
 
 String _$flashcardCarouselPageControllerHash() =>
-    r'74c998b3707284111565ae4209a6046d4c95a3d7';
+    r'2b3680b633651d69df6e40bdb26bb904c85df5e0';
 
 /// See also [flashcardCarouselPageController].
 @ProviderFor(flashcardCarouselPageController)

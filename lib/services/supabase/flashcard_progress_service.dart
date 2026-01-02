@@ -43,4 +43,14 @@ class FlashcardProgressService {
 
     return FlashcardProgress.fromJson(Map<String, dynamic>.from(inserted));
   }
+
+  Future<void> toggleMarked({required String flashcardId}) async {
+    // Atomic toggle (1 request) to avoid race conditions:
+    // - inserts (marked=true) if no row exists
+    // - flips marked if the row already exists
+    await supabase.rpc(
+      'toggle_flashcard_marked',
+      params: {'p_flashcard_id': flashcardId},
+    );
+  }
 }

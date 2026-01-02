@@ -24,6 +24,43 @@ class FlashcardProgressController extends _$FlashcardProgressController {
     return ref.watch(flashcardProgressForSetProvider(setId).future);
   }
 
+  Future<void> toggleMarked({required String flashcardId}) async {
+    final current = state;
+    if (current is! AsyncData<Map<String, FlashcardProgress>>) return;
+
+    final service = ref.read(flashcardProgressServiceProvider);
+    final userId = service.requireUserId();
+    final now = DateTime.now().toUtc();
+
+    final oldMap = Map<String, FlashcardProgress>.from(current.value);
+    final previous = oldMap[flashcardId];
+
+    final next = previous != null
+        ? previous.copyWith(marked: !previous.marked)
+        : FlashcardProgress(
+            userId: userId,
+            flashcardId: flashcardId,
+            rating: 0,
+            intervalDays: 0,
+            repetitions: 0,
+            lastReviewedAt: now,
+            nextReviewAt: now,
+            marked: true,
+          );
+
+    state = AsyncData(
+      Map<String, FlashcardProgress>.from(oldMap)..[flashcardId] = next,
+    );
+
+    try {
+      await service.toggleMarked(flashcardId: flashcardId);
+    } catch (_) {
+      // Roll back optimistic UI on error.
+      state = AsyncData(oldMap);
+      rethrow;
+    }
+  }
+
   FlashcardProgress _computeNext({
     required String userId,
     required String flashcardId,
@@ -31,6 +68,7 @@ class FlashcardProgressController extends _$FlashcardProgressController {
     FlashcardProgress? previous,
   }) {
     final now = DateTime.now().toUtc();
+    final marked = previous?.marked ?? false;
 
     if (rating == 0) {
       return FlashcardProgress(
@@ -42,6 +80,7 @@ class FlashcardProgressController extends _$FlashcardProgressController {
         repetitions: 0,
         lastReviewedAt: now,
         nextReviewAt: now,
+        marked: marked,
       );
     }
 
@@ -60,6 +99,7 @@ class FlashcardProgressController extends _$FlashcardProgressController {
       repetitions: nextReps,
       lastReviewedAt: now,
       nextReviewAt: now.add(Duration(days: nextInterval)),
+      marked: marked,
     );
   }
 

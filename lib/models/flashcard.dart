@@ -10,7 +10,6 @@ class Flashcard {
     required this.back,
     required this.orderIndex,
     this.mp3Key,
-    this.marked = false,
   });
 
   final String id;
@@ -20,7 +19,6 @@ class Flashcard {
   final String back;
   final int orderIndex;
   final String? mp3Key;
-  final bool marked;
 
   static String _asString(dynamic v) {
     if (v == null) return '';
@@ -31,12 +29,6 @@ class Flashcard {
     if (v is int) return v;
     if (v is num) return v.toInt();
     return int.tryParse(v?.toString() ?? '') ?? 0;
-  }
-
-  static bool _asBool(dynamic v) {
-    if (v is bool) return v;
-    final s = v?.toString().toLowerCase();
-    return s == 'true' || s == '1' || s == 'yes';
   }
 
   factory Flashcard.fromJson(Map<String, dynamic> json) {
@@ -60,7 +52,6 @@ class Flashcard {
       back: back,
       orderIndex: _asInt(json['order_index'] ?? json['orderIndex']),
       mp3Key: json['mp3_key'] as String?,
-      marked: _asBool(json['marked']),
     );
   }
 
@@ -73,7 +64,6 @@ class Flashcard {
       'back': back,
       'order_index': orderIndex,
       'mp3_key': mp3Key,
-      'marked': marked,
     };
   }
 }

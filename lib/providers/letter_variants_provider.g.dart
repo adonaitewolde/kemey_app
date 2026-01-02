@@ -6,7 +6,7 @@ part of 'letter_variants_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$letterVariantsHash() => r'6b48d87cbe1b5c7e2301533d1b8ff82994a41fb7';
+String _$letterVariantsHash() => r'f3a63109e861db6fe564da5e9c032b16e5b8ab3d';
 
 /// Copied from Dart SDK
 class _SystemHash {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:kemey_app/models/flashcard_progress.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
 import 'package:kemey_app/providers/flashcards_provider.dart';
 import 'package:kemey_app/providers/flashcard_progress_provider.dart';
@@ -29,27 +30,22 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
   }
 
   int _computeStartIndex({
-    required List<dynamic> flashcardsIdsInOrder,
-    required Map<String, dynamic> progressById,
+    required List<String> flashcardsIdsInOrder,
+    required Map<String, FlashcardProgress> progressById,
   }) {
     // Unseen: no progress row
     for (var i = 0; i < flashcardsIdsInOrder.length; i++) {
-      final id = flashcardsIdsInOrder[i] as String;
+      final id = flashcardsIdsInOrder[i];
       if (!progressById.containsKey(id)) return i;
     }
 
     // Due: next_review_at <= now
     final now = DateTime.now().toUtc();
     for (var i = 0; i < flashcardsIdsInOrder.length; i++) {
-      final id = flashcardsIdsInOrder[i] as String;
+      final id = flashcardsIdsInOrder[i];
       final p = progressById[id];
-      if (p is Map<String, dynamic>) {
-        final next = p['next_review_at'];
-        if (next != null) {
-          final nextDt = DateTime.tryParse(next.toString())?.toUtc();
-          if (nextDt != null && !nextDt.isAfter(now)) return i;
-        }
-      }
+      if (p == null) continue;
+      if (!p.nextReviewAt.isAfter(now)) return i;
     }
 
     return 0;
@@ -97,13 +93,10 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
           progressAsync.whenData((progressMap) {
             if (_didJumpToStart) return;
             final ids = flashcards.map((f) => f.id).toList();
-            final progressById = <String, dynamic>{
-              for (final e in progressMap.entries) e.key: e.value.toJson(),
-            };
 
             final startIndex = _computeStartIndex(
               flashcardsIdsInOrder: ids,
-              progressById: progressById,
+              progressById: progressMap,
             );
             WidgetsBinding.instance.addPostFrameCallback((_) {
               if (_didJumpToStart) return;
@@ -184,9 +177,32 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                     },
                     cardBuilder:
                         (context, index, percentThresholdX, percentThresholdY) {
+                          final flashcard = flashcards[index];
+                          final progress =
+                              progressAsync.valueOrNull?[flashcard.id];
+                          final isMarked = progress?.marked ?? false;
+
                           return FlashcardFlipCard(
-                            key: ValueKey(flashcards[index].id),
-                            flashcard: flashcards[index],
+                            key: ValueKey(flashcard.id),
+                            flashcard: flashcard,
+                            marked: isMarked,
+                            onToggleMarked: () async {
+                              final controller = ref.read(
+                                flashcardProgressControllerProvider(
+                                  widget.flashcardSet.id,
+                                ).notifier,
+                              );
+                              try {
+                                await controller.toggleMarked(
+                                  flashcardId: flashcard.id,
+                                );
+                              } catch (e) {
+                                if (!context.mounted) return;
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(e.toString())),
+                                );
+                              }
+                            },
                           );
                         },
                   ),
