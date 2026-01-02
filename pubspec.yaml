@@ -41,4 +41,5 @@ flutter:
   assets:
     - .env
     - assets/tigrinya_fidel.json
-    - assets/icons/
+    - assets/icons/coffe_bean.svg
+    - assets/icons/flame.svg
