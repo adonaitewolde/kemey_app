@@ -8,12 +8,7 @@ part of 'flashcard_service_provider.dart';
 
 String _$flashcardServiceHash() => r'389cd50c9aaf78e565b458229c5decb8048e55fe';
 
-/// Dependency injection for [FlashcardService].
-///
-/// Keeping this as a provider makes it easy to replace/mocked in tests and
-/// avoids scattered `FlashcardService()` instantiations across providers.
-///
-/// Copied from [flashcardService].
+/// See also [flashcardService].
 @ProviderFor(flashcardService)
 final flashcardServiceProvider = Provider<FlashcardService>.internal(
   flashcardService,

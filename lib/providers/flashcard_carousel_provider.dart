@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'flashcard_carousel_provider.g.dart';
@@ -14,9 +15,7 @@ class FlashcardCarouselCurrentPage extends _$FlashcardCarouselCurrentPage {
 }
 
 @riverpod
-PageController flashcardCarouselPageController(
-  FlashcardCarouselPageControllerRef ref,
-) {
+PageController flashcardCarouselPageController(Ref ref) {
   final initialPage = ref.watch(flashcardCarouselCurrentPageProvider);
   final controller = PageController(
     viewportFraction: 0.85,
