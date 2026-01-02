@@ -7,6 +7,7 @@ import 'package:kemey_app/models/flashcard_set.dart';
 import 'package:kemey_app/providers/flashcards_provider.dart';
 import 'package:kemey_app/providers/flashcard_progress_provider.dart';
 import 'package:kemey_app/widgets/flashcard_flip_card.dart';
+import 'package:kemey_app/utils/haptics.dart';
 
 class FlashcardDetailScreen extends ConsumerStatefulWidget {
   const FlashcardDetailScreen({super.key, required this.flashcardSet});
@@ -226,10 +227,12 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () =>
-                          controller.swipe(CardSwiperDirection.left),
+                      onPressed: () async {
+                        await mediumImpact();
+                        controller.swipe(CardSwiperDirection.left);
+                      },
                       icon: const Icon(
-                        CupertinoIcons.xmark,
+                        Icons.sentiment_very_dissatisfied,
                         size: 32,
                         color: Colors.red,
                       ),
@@ -240,10 +243,27 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () =>
-                          controller.swipe(CardSwiperDirection.right),
+                      onPressed: () async {
+                        await mediumImpact();
+                      },
                       icon: const Icon(
-                        CupertinoIcons.check_mark,
+                        Icons.sentiment_neutral,
+                        size: 32,
+                        color: Colors.orange,
+                      ),
+                      style: IconButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        padding: const EdgeInsets.all(20),
+                        shape: const CircleBorder(),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                        await mediumImpact();
+                        controller.swipe(CardSwiperDirection.right);
+                      },
+                      icon: const Icon(
+                        Icons.tag_faces,
                         size: 32,
                         color: Colors.green,
                       ),
