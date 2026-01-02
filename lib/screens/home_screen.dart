@@ -43,7 +43,7 @@ class HomeContent extends StatelessWidget {
             const Text('2', style: TextStyle(fontSize: 20)),
             const SizedBox(width: 24),
             SvgPicture.asset(
-              'assets/icons/coffe_bean.svg',
+              'assets/icons/coffee_bean.svg',
               width: 26,
               height: 26,
             ),

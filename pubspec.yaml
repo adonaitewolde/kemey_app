@@ -40,6 +40,4 @@ flutter:
         - asset: assets/fonts/Poppins-Regular.ttf
   assets:
     - .env
-    - assets/tigrinya_fidel.json
-    - assets/icons/coffe_bean.svg
-    - assets/icons/flame.svg
+    - assets/
