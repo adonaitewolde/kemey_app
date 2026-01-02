@@ -11,6 +11,21 @@ class FlashcardProgressService {
     return user.id;
   }
 
+  Future<List<String>> getMarkedFlashcardIds() async {
+    final userId = requireUserId();
+    final rows = await supabase
+        .from('flashcard_progress')
+        .select('flashcard_id')
+        .eq('user_id', userId)
+        .eq('marked', true)
+        .order('updated_at', ascending: false);
+
+    return rows
+        .map((r) => (r as Map)['flashcard_id']?.toString() ?? '')
+        .where((id) => id.isNotEmpty)
+        .toList();
+  }
+
   Future<Map<String, FlashcardProgress>> getProgressForFlashcardIds({
     required List<String> flashcardIds,
   }) async {

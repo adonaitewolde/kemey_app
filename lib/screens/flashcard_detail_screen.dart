@@ -6,13 +6,20 @@ import 'package:kemey_app/models/flashcard_progress.dart';
 import 'package:kemey_app/models/flashcard_set.dart';
 import 'package:kemey_app/providers/flashcards_provider.dart';
 import 'package:kemey_app/providers/flashcard_progress_provider.dart';
+import 'package:kemey_app/providers/marked_flashcards_provider.dart';
 import 'package:kemey_app/widgets/flashcard_flip_card.dart';
 import 'package:kemey_app/utils/haptics.dart';
 
 class FlashcardDetailScreen extends ConsumerStatefulWidget {
-  const FlashcardDetailScreen({super.key, required this.flashcardSet});
+  const FlashcardDetailScreen({super.key, required this.flashcardSet})
+    : markedOnly = false;
 
-  final FlashcardSet flashcardSet;
+  const FlashcardDetailScreen.marked({super.key})
+    : flashcardSet = null,
+      markedOnly = true;
+
+  final FlashcardSet? flashcardSet;
+  final bool markedOnly;
 
   @override
   ConsumerState<FlashcardDetailScreen> createState() =>
@@ -23,6 +30,7 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
   final CardSwiperController controller = CardSwiperController();
   int currentIndex = 0;
   bool _didJumpToStart = false;
+  List<String> _removedMarkedIds = <String>[];
 
   @override
   void dispose() {
@@ -54,12 +62,15 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final flashcardsAsync = ref.watch(
-      flashcardsProvider(widget.flashcardSet.id),
-    );
-    final progressAsync = ref.watch(
-      flashcardProgressControllerProvider(widget.flashcardSet.id),
-    );
+    final flashcardsAsync = widget.markedOnly
+        ? ref.watch(markedFlashcardsProvider)
+        : ref.watch(flashcardsProvider(widget.flashcardSet!.id));
+
+    final progressAsync = widget.markedOnly
+        ? ref.watch(markedFlashcardProgressProvider)
+        : ref.watch(
+            flashcardProgressControllerProvider(widget.flashcardSet!.id),
+          );
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
@@ -71,7 +82,7 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          widget.flashcardSet.title,
+          widget.markedOnly ? 'Marked cards' : widget.flashcardSet!.title,
           style: const TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.w600,
@@ -81,10 +92,16 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
       ),
       body: flashcardsAsync.when(
         data: (flashcards) {
-          if (flashcards.isEmpty) {
+          final visibleFlashcards = widget.markedOnly
+              ? flashcards
+                    .where((c) => !_removedMarkedIds.contains(c.id))
+                    .toList()
+              : flashcards;
+
+          if (visibleFlashcards.isEmpty) {
             return const Center(
               child: Text(
-                'Keine Karteikarten vorhanden',
+                'Keine markierten Karteikarten vorhanden',
                 style: TextStyle(fontSize: 18, color: Colors.black54),
               ),
             );
@@ -93,7 +110,7 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
           // Jump to the first unseen (or due) card once progress is loaded.
           progressAsync.whenData((progressMap) {
             if (_didJumpToStart) return;
-            final ids = flashcards.map((f) => f.id).toList();
+            final ids = visibleFlashcards.map((f) => f.id).toList();
 
             final startIndex = _computeStartIndex(
               flashcardsIdsInOrder: ids,
@@ -119,7 +136,9 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                   child: TweenAnimationBuilder<double>(
                     tween: Tween<double>(
                       begin: 0.0,
-                      end: currentIndex / flashcards.length,
+                      end: visibleFlashcards.isEmpty
+                          ? 0.0
+                          : (currentIndex / visibleFlashcards.length),
                     ),
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeOut,
@@ -142,17 +161,18 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: CardSwiper(
                     controller: controller,
-                    cardsCount: flashcards.length,
-                    numberOfCardsDisplayed: flashcards.length > 2
+                    cardsCount: visibleFlashcards.length,
+                    numberOfCardsDisplayed: visibleFlashcards.length > 2
                         ? 3
-                        : flashcards.length,
+                        : visibleFlashcards.length,
                     backCardOffset: const Offset(0, 40),
                     padding: const EdgeInsets.all(0),
                     onSwipe: (previousIndex, currentIndex, direction) {
-                      final swipedCardId = flashcards[previousIndex].id;
+                      final swipedCard = visibleFlashcards[previousIndex];
+                      final swipedCardId = swipedCard.id;
                       final progressController = ref.read(
                         flashcardProgressControllerProvider(
-                          widget.flashcardSet.id,
+                          swipedCard.setId,
                         ).notifier,
                       );
 
@@ -178,7 +198,7 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                     },
                     cardBuilder:
                         (context, index, percentThresholdX, percentThresholdY) {
-                          final flashcard = flashcards[index];
+                          final flashcard = visibleFlashcards[index];
                           final progress =
                               progressAsync.valueOrNull?[flashcard.id];
                           final isMarked = progress?.marked ?? false;
@@ -190,13 +210,33 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                             onToggleMarked: () async {
                               final controller = ref.read(
                                 flashcardProgressControllerProvider(
-                                  widget.flashcardSet.id,
+                                  flashcard.setId,
                                 ).notifier,
                               );
                               try {
                                 await controller.toggleMarked(
                                   flashcardId: flashcard.id,
                                 );
+                                if (!mounted) return;
+
+                                // Always invalidate marked cards provider to update count in flashcard_screen
+                                ref.invalidate(markedFlashcardsProvider);
+                                ref.invalidate(markedFlashcardProgressProvider);
+
+                                // In "marked cards" mode: if user unmarks, remove it from the stack.
+                                if (widget.markedOnly && isMarked) {
+                                  setState(() {
+                                    _removedMarkedIds = List<String>.from(
+                                      _removedMarkedIds,
+                                    )..add(flashcard.id);
+                                  });
+
+                                  final remaining =
+                                      visibleFlashcards.length - 1;
+                                  if (remaining <= 0 && context.mounted) {
+                                    Navigator.pop(context);
+                                  }
+                                }
                               } catch (e) {
                                 if (!context.mounted) return;
                                 ScaffoldMessenger.of(context).showSnackBar(

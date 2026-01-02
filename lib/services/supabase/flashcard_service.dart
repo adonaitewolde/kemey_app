@@ -24,4 +24,12 @@ class FlashcardService {
         .eq('set_id', flashCardSet)
         .order('order_index', ascending: true);
   }
+
+  Future<PostgrestList> getFlashcardsByIds(List<String> flashcardIds) async {
+    if (flashcardIds.isEmpty) return <Map<String, dynamic>>[];
+    return await supabase
+        .from('flashcards')
+        .select()
+        .inFilter('id', flashcardIds);
+  }
 }
