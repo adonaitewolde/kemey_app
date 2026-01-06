@@ -127,14 +127,9 @@ class _FlashcardFront extends StatelessWidget {
           height: double.infinity,
           padding: const EdgeInsets.all(32),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Icon(
-                CupertinoIcons.square_stack_3d_up,
-                size: 48,
-                color: Color.fromARGB(255, 255, 128, 0),
-              ),
-              const SizedBox(height: 32),
+              const Spacer(),
               Text(
                 flashcard.geezText.isNotEmpty ? flashcard.geezText : '—',
                 style: const TextStyle(
@@ -216,14 +211,9 @@ class _FlashcardBack extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Icon(
-                CupertinoIcons.checkmark_seal_fill,
-                size: 48,
-                color: Colors.white,
-              ),
-              const SizedBox(height: 32),
+              const Spacer(),
               Text(
                 flashcard.back.isNotEmpty ? flashcard.back : '—',
                 style: const TextStyle(
