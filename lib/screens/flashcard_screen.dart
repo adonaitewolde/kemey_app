@@ -12,11 +12,22 @@ class FlashcardScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final markedAsync = ref.watch(markedFlashcardsProvider);
 
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 100, 0, 0),
-      child: Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Practice your skills!',
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+            fontFamily: 'Poppins',
+            letterSpacing: -0.5,
+          ),
+        ),
+      ),
+      body: Column(
         children: [
-          const FlashCardCarousel(),
+          const Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: FlashCardCarousel(),
+          ),
           const SizedBox(height: 18),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

@@ -34,15 +34,6 @@ class FlashCardCarousel extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'Practice your skills!',
-
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontFamily: 'Poppins',
-                letterSpacing: -0.5,
-              ),
-            ),
-            const SizedBox(height: 20),
             SizedBox(
               height: 225,
               child: PageView.builder(
