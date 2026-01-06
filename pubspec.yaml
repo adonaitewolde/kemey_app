@@ -40,4 +40,5 @@ flutter:
         - asset: assets/fonts/Poppins-Regular.ttf
   assets:
     - .env
-    - assets/
+    - assets/icons/
+    - assets/tigrinya_fidel.json
