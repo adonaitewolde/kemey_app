@@ -70,7 +70,11 @@ class FlashcardProgressController extends _$FlashcardProgressController {
     final now = DateTime.now().toUtc();
     final marked = previous?.marked ?? false;
 
+    final prevInterval = previous?.intervalDays ?? 0;
+    final prevReps = previous?.repetitions ?? 0;
+
     if (rating == 0) {
+      // Fail: reset interval and repetitions
       return FlashcardProgress(
         id: previous?.id,
         userId: userId,
@@ -82,25 +86,36 @@ class FlashcardProgressController extends _$FlashcardProgressController {
         nextReviewAt: now,
         marked: marked,
       );
+    } else if (rating == 1) {
+      // Neutral: keep same interval, don't increment repetitions
+      final nextInterval = prevInterval <= 0 ? 1 : prevInterval;
+      return FlashcardProgress(
+        id: previous?.id,
+        userId: userId,
+        flashcardId: flashcardId,
+        rating: 1,
+        intervalDays: nextInterval,
+        repetitions: prevReps,
+        lastReviewedAt: now,
+        nextReviewAt: now.add(Duration(days: nextInterval)),
+        marked: marked,
+      );
+    } else {
+      // Success: double interval, increment repetitions
+      final nextReps = prevReps + 1;
+      final nextInterval = prevInterval <= 0 ? 1 : (prevInterval * 2);
+      return FlashcardProgress(
+        id: previous?.id,
+        userId: userId,
+        flashcardId: flashcardId,
+        rating: 2,
+        intervalDays: nextInterval,
+        repetitions: nextReps,
+        lastReviewedAt: now,
+        nextReviewAt: now.add(Duration(days: nextInterval)),
+        marked: marked,
+      );
     }
-
-    final prevInterval = previous?.intervalDays ?? 0;
-    final prevReps = previous?.repetitions ?? 0;
-
-    final nextReps = prevReps + 1;
-    final nextInterval = prevInterval <= 0 ? 1 : (prevInterval * 2);
-
-    return FlashcardProgress(
-      id: previous?.id,
-      userId: userId,
-      flashcardId: flashcardId,
-      rating: 2,
-      intervalDays: nextInterval,
-      repetitions: nextReps,
-      lastReviewedAt: now,
-      nextReviewAt: now.add(Duration(days: nextInterval)),
-      marked: marked,
-    );
   }
 
   Future<void> recordReview({
@@ -133,9 +148,9 @@ class FlashcardProgressController extends _$FlashcardProgressController {
       final withSaved = Map<String, FlashcardProgress>.from(optimisticMap)
         ..[flashcardId] = saved;
       state = AsyncData(withSaved);
-    } catch (e, st) {
-      state = AsyncError(e, st);
+    } catch (_) {
       state = AsyncData(oldMap);
+      rethrow;
     }
   }
 }

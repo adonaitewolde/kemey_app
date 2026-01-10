@@ -10,19 +10,19 @@ import 'profile_screen.dart';
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
+  static const List<Widget> _screens = [
+    HomeContent(),
+    FlashcardScreen(),
+    GeezScreen(),
+    ProfileScreen(),
+  ];
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedIndex = ref.watch(navigationIndexProvider);
 
-    final screens = [
-      const HomeContent(),
-      const FlashcardScreen(),
-      const GeezScreen(),
-      const ProfileScreen(),
-    ];
-
     return Scaffold(
-      body: IndexedStack(index: selectedIndex, children: screens),
+      body: IndexedStack(index: selectedIndex, children: _screens),
       bottomNavigationBar: const CustomNavigationBar(),
     );
   }

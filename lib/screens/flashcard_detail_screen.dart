@@ -7,6 +7,7 @@ import 'package:kemey_app/models/flashcard_set.dart';
 import 'package:kemey_app/providers/flashcards_provider.dart';
 import 'package:kemey_app/providers/flashcard_progress_provider.dart';
 import 'package:kemey_app/providers/marked_flashcards_provider.dart';
+import 'package:kemey_app/theme/app_theme.dart';
 import 'package:kemey_app/widgets/flashcard_flip_card.dart';
 import 'package:kemey_app/utils/haptics.dart';
 
@@ -147,7 +148,7 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                         value: value,
                         backgroundColor: Colors.grey[300],
                         valueColor: const AlwaysStoppedAnimation<Color>(
-                          Color.fromARGB(255, 255, 128, 0),
+                          AppColors.primaryOrange,
                         ),
                         minHeight: 6,
                       );
@@ -167,6 +168,13 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                         : visibleFlashcards.length,
                     backCardOffset: const Offset(0, 40),
                     padding: const EdgeInsets.all(0),
+                    threshold: 50,
+                    duration: const Duration(milliseconds: 275),
+                    allowedSwipeDirection: AllowedSwipeDirection.only(
+                      left: true,
+                      right: true,
+                      up: true,
+                    ),
                     onSwipe: (previousIndex, currentIndex, direction) {
                       final swipedCard = visibleFlashcards[previousIndex];
                       final swipedCardId = swipedCard.id;
@@ -185,6 +193,11 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                         progressController.recordReview(
                           flashcardId: swipedCardId,
                           rating: 2,
+                        );
+                      } else if (direction == CardSwiperDirection.top) {
+                        progressController.recordReview(
+                          flashcardId: swipedCardId,
+                          rating: 1,
                         );
                       }
 
@@ -285,6 +298,7 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
                     IconButton(
                       onPressed: () async {
                         await mediumImpact();
+                        controller.swipe(CardSwiperDirection.top);
                       },
                       icon: const Icon(
                         Icons.sentiment_neutral,
