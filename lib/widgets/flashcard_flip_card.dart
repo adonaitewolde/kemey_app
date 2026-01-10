@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:kemey_app/models/flashcard.dart';
+import 'package:kemey_app/theme/app_theme.dart';
 
 class FlashcardFlipCard extends StatefulWidget {
   const FlashcardFlipCard({
@@ -167,9 +168,7 @@ class _FlashcardFront extends StatelessWidget {
             ),
             style: IconButton.styleFrom(
               iconSize: 40,
-              foregroundColor: marked
-                  ? const Color.fromARGB(255, 255, 128, 0)
-                  : Colors.grey,
+              foregroundColor: marked ? AppColors.primaryOrange : Colors.grey,
             ),
           ),
         ),
@@ -203,8 +202,8 @@ class _FlashcardBack extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color.fromARGB(255, 255, 128, 0),
-                Color.fromARGB(255, 255, 100, 0),
+                AppColors.primaryOrange,
+                AppColors.primaryOrangeDark,
               ],
             ),
           ),

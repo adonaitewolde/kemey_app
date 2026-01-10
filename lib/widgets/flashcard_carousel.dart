@@ -6,6 +6,7 @@ import 'package:kemey_app/providers/flashcard_carousel_provider.dart';
 import 'package:kemey_app/providers/flashcard_sets_provider.dart';
 import 'package:kemey_app/providers/flashcard_set_progress_provider.dart';
 import 'package:kemey_app/screens/flashcard_detail_screen.dart';
+import 'package:kemey_app/theme/app_theme.dart';
 import 'package:kemey_app/utils/haptics.dart';
 import 'package:kemey_app/widgets/page_indicators.dart';
 
@@ -122,7 +123,7 @@ class FlashcardSetCard extends StatelessWidget {
       child: ClipRSuperellipse(
         borderRadius: BorderRadius.circular(32),
         child: Material(
-          color: const Color.fromARGB(255, 255, 128, 0),
+          color: AppColors.primaryOrange,
           child: InkWell(
             onTap: onTap,
             child: Stack(
@@ -247,7 +248,8 @@ class _ProgressPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(_ProgressPainter oldDelegate) =>
+      oldDelegate.progress != progress;
 }
 
 class _Stat extends StatelessWidget {
@@ -293,16 +295,16 @@ class _PlayButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
+          const Icon(
             CupertinoIcons.play_fill,
             size: 20,
-            color: const Color.fromARGB(255, 255, 128, 0),
+            color: AppColors.primaryOrange,
           ),
           const SizedBox(width: 6),
-          Text(
+          const Text(
             'Start',
             style: TextStyle(
-              color: const Color.fromARGB(255, 255, 128, 0),
+              color: AppColors.primaryOrange,
               fontWeight: FontWeight.w600,
               fontSize: 14,
             ),

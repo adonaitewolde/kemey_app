@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kemey_app/providers/marked_flashcards_provider.dart';
 import 'package:kemey_app/screens/flashcard_detail_screen.dart';
+import 'package:kemey_app/theme/app_theme.dart';
 import 'package:kemey_app/utils/haptics.dart';
 import 'package:kemey_app/widgets/flashcard_carousel.dart';
 
@@ -55,7 +56,7 @@ class FlashcardScreen extends ConsumerWidget {
                     children: [
                       const Icon(
                         Icons.star_rounded,
-                        color: Color.fromARGB(255, 255, 128, 0),
+                        color: AppColors.primaryOrange,
                       ),
                       const SizedBox(width: 12),
                       const Expanded(
