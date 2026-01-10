@@ -36,7 +36,7 @@ class FlashCardCarousel extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 225,
+              height: 245,
               child: PageView.builder(
                 controller: pageController,
                 onPageChanged: onPageChanged,
@@ -47,7 +47,7 @@ class FlashCardCarousel extends ConsumerWidget {
                   );
 
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.fromLTRB(8, 10, 8, 20),
                     child: FlashcardSetCard(
                       set: sets[index],
                       isActive: index == safeCurrentPage,
@@ -120,57 +120,60 @@ class FlashcardSetCard extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeOut,
       scale: isActive ? 1.0 : 0.98,
-      child: ClipRSuperellipse(
-        borderRadius: BorderRadius.circular(32),
-        child: Material(
-          color: AppColors.primaryOrange,
-          child: InkWell(
-            onTap: onTap,
-            child: Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 16),
-                      Text(
-                        title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: (textTheme.titleLarge ?? const TextStyle())
-                            .copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: -0.2,
-                            ),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        description,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: (textTheme.bodyMedium ?? const TextStyle())
-                            .copyWith(
-                              color: Colors.white.withValues(alpha: 0.85),
-                              height: 1.15,
-                            ),
-                      ),
-                      _Stat(
-                        icon: CupertinoIcons.rectangle_stack,
-                        label: '$cardCount Cards',
-                      ),
-                    ],
-                  ),
+      child: Material(
+        color: Colors.white,
+        elevation: 10,
+        shadowColor: Colors.black.withValues(alpha: 0.25),
+        shape: RoundedSuperellipseBorder(
+          borderRadius: BorderRadius.circular(32),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: onTap,
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 16),
+                    Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: (textTheme.titleLarge ?? const TextStyle())
+                          .copyWith(
+                            color: Colors.black87,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: -0.2,
+                          ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      description,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: (textTheme.bodyMedium ?? const TextStyle())
+                          .copyWith(
+                            color: Colors.black87.withValues(alpha: 0.85),
+                            height: 1.15,
+                          ),
+                    ),
+                    _Stat(
+                      icon: CupertinoIcons.rectangle_stack,
+                      label: '$cardCount Cards',
+                    ),
+                  ],
                 ),
-                Positioned(bottom: 16, right: 18, child: _PlayButton()),
-                Positioned(
-                  bottom: 16,
-                  left: 18,
-                  child: _ProgressCircle(progress: progress),
-                ),
-              ],
-            ),
+              ),
+              Positioned(bottom: 16, right: 18, child: _PlayButton()),
+              Positioned(
+                bottom: 16,
+                left: 18,
+                child: _ProgressCircle(progress: progress),
+              ),
+            ],
           ),
         ),
       ),
@@ -200,8 +203,9 @@ class _ProgressCircle extends StatelessWidget {
           Text(
             '${(clamped * 100).toInt()}%',
             style: const TextStyle(
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: AppColors.primaryOrange,
               fontSize: 16,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
@@ -222,7 +226,7 @@ class _ProgressPainter extends CustomPainter {
     const strokeWidth = 8.0;
 
     final backgroundPaint = Paint()
-      ..color = Colors.white.withValues(alpha: 0.3)
+      ..color = Colors.blueGrey.withValues(alpha: 0.2)
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
@@ -230,7 +234,7 @@ class _ProgressPainter extends CustomPainter {
     canvas.drawCircle(center, radius, backgroundPaint);
 
     final progressPaint = Paint()
-      ..color = Colors.white
+      ..color = AppColors.primaryOrangeDark
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
@@ -289,22 +293,22 @@ class _PlayButton extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        gradient: const LinearGradient(
+          colors: [AppColors.primaryOrangeDark, Color(0xFFFFB347)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(
-            CupertinoIcons.play_fill,
-            size: 20,
-            color: AppColors.primaryOrange,
-          ),
+          const Icon(CupertinoIcons.play_fill, size: 20, color: Colors.white),
           const SizedBox(width: 6),
           const Text(
             'Start',
             style: TextStyle(
-              color: AppColors.primaryOrange,
+              color: Colors.white,
               fontWeight: FontWeight.w600,
               fontSize: 14,
             ),

@@ -22,7 +22,6 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Kemey',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryOrange),
         useMaterial3: true,
       ),
       home: const HomeScreen(),
