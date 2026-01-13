@@ -46,3 +46,9 @@ app.*.map.json
 
 .env
 .env.local
+
+# Documentation files
+IMPLEMENTATION_GUIDE.md
+LEARNING_PATH_SCHEMA.md
+LEARNING_PATH_SUMMARY.md
+SQL_QUICK_REFERENCE.sql
