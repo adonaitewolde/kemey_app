@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:kemey_app/theme/app_theme.dart';
 
-class SectionIndicatorsRing extends StatelessWidget {
+class SectionIndicatorsRing extends StatefulWidget {
   const SectionIndicatorsRing({
     super.key,
     required this.totalSections,
@@ -12,6 +12,7 @@ class SectionIndicatorsRing extends StatelessWidget {
     this.strokeWidth,
     this.completedColor = AppColors.primaryOrangeDark,
     this.remainingColor = Colors.blueGrey,
+    this.enablePulse = true,
   });
 
   final int totalSections;
@@ -20,20 +21,80 @@ class SectionIndicatorsRing extends StatelessWidget {
   final double? strokeWidth;
   final Color completedColor;
   final Color remainingColor;
+  final bool enablePulse;
+
+  @override
+  State<SectionIndicatorsRing> createState() => _SectionIndicatorsRingState();
+}
+
+class _SectionIndicatorsRingState extends State<SectionIndicatorsRing>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.05,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+
+    if (widget.enablePulse && widget.sectionsCompleted > 0) {
+      _controller.repeat(reverse: true);
+    }
+  }
+
+  @override
+  void didUpdateWidget(SectionIndicatorsRing oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.enablePulse &&
+        widget.sectionsCompleted > 0 &&
+        !_controller.isAnimating) {
+      _controller.repeat(reverse: true);
+    } else if (!widget.enablePulse || widget.sectionsCompleted == 0) {
+      _controller.stop();
+      _controller.value = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (totalSections <= 0) return const SizedBox.shrink();
+    if (widget.totalSections <= 0) return const SizedBox.shrink();
 
     return IgnorePointer(
-      child: CustomPaint(
-        size: Size.square(diameter),
-        painter: _SectionIndicatorsRingPainter(
-          totalSections: totalSections,
-          sectionsCompleted: sectionsCompleted,
-          strokeWidth: strokeWidth ?? math.max(6, diameter * 0.07),
-          completedColor: completedColor,
-          remainingColor: remainingColor,
+      child: AnimatedBuilder(
+        animation: _scaleAnimation,
+        builder: (context, child) {
+          return Transform.scale(
+            scale: _scaleAnimation.value,
+            child: child,
+          );
+        },
+        child: CustomPaint(
+          size: Size.square(widget.diameter),
+          painter: _SectionIndicatorsRingPainter(
+            totalSections: widget.totalSections,
+            sectionsCompleted: widget.sectionsCompleted,
+            strokeWidth:
+                widget.strokeWidth ?? math.max(6, widget.diameter * 0.07),
+            completedColor: widget.completedColor,
+            remainingColor: widget.remainingColor,
+          ),
         ),
       ),
     );
