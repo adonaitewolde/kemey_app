@@ -25,6 +25,7 @@ class HomeScreen extends ConsumerWidget {
     final selectedIndex = ref.watch(navigationIndexProvider);
 
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: IndexedStack(index: selectedIndex, children: _screens),
       bottomNavigationBar: const CustomNavigationBar(),
     );
@@ -40,21 +41,38 @@ class HomeContent extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SvgPicture.asset('assets/icons/flame.svg', width: 26, height: 26),
-            const SizedBox(width: 8),
-            const Text('2', style: TextStyle(fontSize: 20)),
-            const SizedBox(width: 24),
-            SvgPicture.asset(
-              'assets/icons/coffee_bean.svg',
-              width: 26,
-              height: 26,
-            ),
-            const SizedBox(width: 8),
-            const Text('225', style: TextStyle(fontSize: 20)),
-          ],
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        surfaceTintColor: Colors.transparent,
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SvgPicture.asset('assets/icons/flame.svg', width: 26, height: 26),
+              const SizedBox(width: 8),
+              const Text(
+                '2',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Color.fromARGB(255, 38, 43, 46),
+                ),
+              ),
+              const SizedBox(width: 24),
+              SvgPicture.asset(
+                'assets/icons/coffee_bean.svg',
+                width: 26,
+                height: 26,
+              ),
+              const SizedBox(width: 8),
+              const Text(
+                '225',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Color.fromARGB(255, 38, 43, 46),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: learningPathAsync.when(
