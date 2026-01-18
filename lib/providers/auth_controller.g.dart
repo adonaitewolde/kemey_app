@@ -6,18 +6,9 @@ part of 'auth_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authControllerHash() => r'6d5a62ae58f420aaf06f68179c8ebcba8e852324';
+String _$authControllerHash() => r'3d486a37772eea2c35457c4cef49997fa89c9c6c';
 
-/// Controller for authentication actions with loading/error states
-///
-/// Provides methods for:
-/// - Google Sign-In
-/// - Apple Sign-In
-/// - Sign out
-///
-/// Each method updates state to show loading, success, or error
-///
-/// Copied from [AuthController].
+/// See also [AuthController].
 @ProviderFor(AuthController)
 final authControllerProvider =
     AutoDisposeAsyncNotifierProvider<AuthController, void>.internal(

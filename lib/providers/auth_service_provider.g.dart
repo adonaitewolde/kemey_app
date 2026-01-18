@@ -6,10 +6,8 @@ part of 'auth_service_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authServiceHash() => r'd95f6f0327b9783a3e7e039c4caaa93c6a60aa27';
+String _$authServiceHash() => r'1a086f396b6916ee8c5a9a14df3ece637f134805';
 
-/// Provider for the AuthService singleton
-///
 /// Kept alive throughout the app lifecycle to maintain authentication state
 ///
 /// Copied from [authService].

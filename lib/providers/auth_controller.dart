@@ -1,5 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'auth_service_provider.dart';
+import 'user_initialization_service_provider.dart';
 import '../utils/auth_error_handler.dart';
 
 part 'auth_controller.g.dart';
@@ -18,6 +19,11 @@ class AuthController extends _$AuthController {
     try {
       final authService = ref.read(authServiceProvider);
       await authService.signInWithGoogle();
+
+      // Initialize user in database after successful OAuth sign-in
+      final userInitService = ref.read(userInitializationServiceProvider);
+      await userInitService.ensureUserInitialized();
+
       state = const AsyncValue.data(null);
     } catch (e, st) {
       final message = AuthErrorHandler.getUserFriendlyMessage(e);
@@ -31,6 +37,11 @@ class AuthController extends _$AuthController {
     try {
       final authService = ref.read(authServiceProvider);
       await authService.signInWithApple();
+
+      // Initialize user in database after successful OAuth sign-in
+      final userInitService = ref.read(userInitializationServiceProvider);
+      await userInitService.ensureUserInitialized();
+
       state = const AsyncValue.data(null);
     } catch (e, st) {
       final message = AuthErrorHandler.getUserFriendlyMessage(e);

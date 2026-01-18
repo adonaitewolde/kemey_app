@@ -6,10 +6,30 @@ class AuthErrorHandler {
   ///
   /// Handles:
   /// - AuthException with specific status codes
+  /// - User initialization errors
   /// - User cancellation
   /// - Network errors
   /// - Generic exceptions
   static String getUserFriendlyMessage(dynamic error) {
+    // Handle user initialization errors
+    if (error is Exception &&
+        error.toString().contains('Failed to initialize user')) {
+      // Check if it's a network error during initialization
+      if (error.toString().contains('network') ||
+          error.toString().contains('timeout') ||
+          error.toString().contains('connection')) {
+        return 'Network error during account setup. Please check your connection and try again.';
+      }
+
+      // Check if it's a timeout during initialization
+      if (error.toString().contains('timeout')) {
+        return 'Account setup is taking longer than expected. Please try again.';
+      }
+
+      // Generic initialization error
+      return 'Failed to set up your account. Please try signing in again.';
+    }
+
     // Handle AuthException with status codes
     if (error is AuthException) {
       final statusCode = error.statusCode;
@@ -78,5 +98,13 @@ class AuthErrorHandler {
     return errorStr.contains('network') ||
         errorStr.contains('connection') ||
         errorStr.contains('timeout');
+  }
+
+  /// Check if error is user initialization related
+  static bool isInitializationError(dynamic error) {
+    if (error is Exception) {
+      return error.toString().contains('Failed to initialize user');
+    }
+    return false;
   }
 }

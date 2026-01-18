@@ -6,7 +6,7 @@ part of 'auth_state_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authStateChangesHash() => r'355b0535a43c5f4bbbb9824f6b8d844044c1c281';
+String _$authStateChangesHash() => r'5534febcfa7a460b3418a3031f1130db51e85def';
 
 /// Stream provider for authentication state changes
 ///
@@ -27,7 +27,7 @@ final authStateChangesProvider = StreamProvider<AuthState>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef AuthStateChangesRef = StreamProviderRef<AuthState>;
-String _$currentUserHash() => r'b9c5a17acb79fb55db868c9c4728f47e1751b393';
+String _$currentUserHash() => r'09c8ef1a223cca3692c224ba4173459536c1e07b';
 
 /// Provider for the current authenticated user
 ///
@@ -48,7 +48,7 @@ final currentUserProvider = Provider<User?>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef CurrentUserRef = ProviderRef<User?>;
-String _$isAuthenticatedHash() => r'8e86fdaf7d4f832fc680f6240cbffafa5480d425';
+String _$isAuthenticatedHash() => r'72bdeeda1477343c2ee20c7fcd1709246f6fb236';
 
 /// Provider to check if user is authenticated (excludes anonymous users)
 ///
@@ -69,7 +69,7 @@ final isAuthenticatedProvider = AutoDisposeProvider<bool>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef IsAuthenticatedRef = AutoDisposeProviderRef<bool>;
-String _$userDisplayNameHash() => r'34d512dc293de292d872c0fa6dfcb52152820215';
+String _$userDisplayNameHash() => r'ec5a1ff34d7e96f648d352ac4ac9479b22c2df7d';
 
 /// Provider for user's display name
 ///
@@ -90,7 +90,7 @@ final userDisplayNameProvider = AutoDisposeProvider<String?>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef UserDisplayNameRef = AutoDisposeProviderRef<String?>;
-String _$userEmailHash() => r'0db159da0097d3e94a2c959a16bd763b04974023';
+String _$userEmailHash() => r'b6b10592fc378ab0e921dc8091f236861e1dec8f';
 
 /// Provider for user's email address
 ///
@@ -109,7 +109,7 @@ final userEmailProvider = AutoDisposeProvider<String?>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef UserEmailRef = AutoDisposeProviderRef<String?>;
-String _$userAvatarUrlHash() => r'4145d1c3b92fad769d507e7ef760659d45a5dd3e';
+String _$userAvatarUrlHash() => r'1c161fbd160f55453b61843a9f5e691840a17cb6';
 
 /// Provider for user's avatar URL
 ///
