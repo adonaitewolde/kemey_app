@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Kemey App</string>
+	<string>Kemey</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -45,5 +45,19 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- TODO: Replace with your reversed Google Client ID -->
+				<string>com.googleusercontent.apps.996667505966-loe3b7cl9seskpip60itbnc12tcjjn0p</string>
+				<!-- Deep link scheme for Supabase auth -->
+				<string>io.supabase.kemeyapp</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
