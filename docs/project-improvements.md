@@ -110,160 +110,7 @@ test/
 
 ---
 
-### 2. Complete the README.md
-
-**Current State:**
-```markdown
-# kemey_app
-
-A new Flutter project.
-```
-
-**Recommended Structure:**
-
-```markdown
-# Kemey App 🇪🇷
-
-A Flutter-based language learning application for Ge'ez script and Tigrinya language, featuring flashcard-based learning with spaced repetition.
-
-## Features
-
-- 📱 OAuth authentication (Google & Apple Sign-In)
-- 🎴 Interactive flashcard system with swipe gestures
-- 📊 Spaced repetition algorithm for optimal learning
-- 🏆 Progress tracking with XP and streaks
-- 🔤 Ge'ez alphabet reference guide
-- 🎯 Learning path with unit-based progression
-
-## Tech Stack
-
-- **Framework:** Flutter 3.10.4+
-- **State Management:** Riverpod 2.6.1 with code generation
-- **Backend:** Supabase (auth + database)
-- **Authentication:** Google Sign-In, Sign in with Apple
-
-## Setup Instructions
-
-### Prerequisites
-
-- Flutter SDK 3.10.4 or higher
-- Dart 3.0+
-- iOS development: Xcode 14+, macOS
-- Android development: Android Studio, JDK 11+
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/adonaitewolde/kemey_app.git
-   cd kemey_app
-   ```
-
-2. Install dependencies:
-   ```bash
-   flutter pub get
-   ```
-
-3. Generate Riverpod code:
-   ```bash
-   dart run build_runner build --delete-conflicting-outputs
-   ```
-
-4. Configure environment variables:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your credentials
-   ```
-
-5. Run the app:
-   ```bash
-   flutter run
-   ```
-
-## Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_ANON_KEY=your_supabase_anon_key
-GOOGLE_WEB_CLIENT_ID=your_google_web_client_id
-GOOGLE_IOS_CLIENT_ID=your_google_ios_client_id
-```
-
-## Architecture
-
-### Project Structure
-
-```
-lib/
-├── main.dart                  # App entry point
-├── models/                    # Data models (immutable)
-├── providers/                 # Riverpod state management
-├── screens/                   # UI screens
-├── services/supabase/         # Backend integration
-├── theme/                     # Theme configuration
-├── utils/                     # Utilities
-└── widgets/                   # Reusable widgets
-```
-
-### State Management
-
-Using Riverpod with code generation:
-- `@riverpod` annotations for providers
-- `AsyncNotifier` pattern for stateful controllers
-- Stream providers for real-time updates
-
-### Authentication Flow
-
-1. User taps Google/Apple sign-in
-2. OAuth flow via Supabase (PKCE for security)
-3. UserInitializationService ensures DB record exists
-4. Navigate to home screen with user data
-
-## Development
-
-### Code Generation
-
-When modifying Riverpod providers:
-```bash
-dart run build_runner watch
-```
-
-### Linting
-
-```bash
-flutter analyze
-```
-
-### Testing
-
-```bash
-flutter test
-flutter test --coverage
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-[Add your license here]
-
-## Acknowledgments
-
-- Ge'ez script data and resources
-- Flutter and Riverpod communities
-```
-
----
-
-### 3. Fix Profile Screen Implementation
+### 2. Fix Profile Screen Implementation
 
 **File:** `lib/screens/profile_screen.dart`
 
@@ -355,7 +202,7 @@ class ProfileScreen extends ConsumerWidget {
 
 ## ⚠️ High Priority
 
-### 4. Implement Proper Logging System
+### 3. Implement Proper Logging System
 
 **Current Issues:**
 - 14 `debugPrint()` statements in `lib/services/supabase/auth_service.dart`
@@ -436,7 +283,7 @@ Future<void> main() async {
 
 ---
 
-### 5. Create .env.example Template
+### 4. Create .env.example Template
 
 **Current Issue:**
 - No template for required environment variables
@@ -477,7 +324,7 @@ GOOGLE_IOS_CLIENT_ID=your-ios-client-id.apps.googleusercontent.com
 
 ---
 
-### 6. Add Internationalization (i18n)
+### 5. Add Internationalization (i18n)
 
 **Current Issues:**
 - Mixed languages in UI:
@@ -569,7 +416,7 @@ Text(AppLocalizations.of(context)!.noMarkedFlashcards)
 
 ## 📊 Medium Priority
 
-### 7. Add Analytics & Monitoring
+### 6. Add Analytics & Monitoring
 
 **Current State:**
 - No user analytics
@@ -649,7 +496,7 @@ await trace.stop();
 
 ---
 
-### 8. Accessibility Improvements
+### 7. Accessibility Improvements
 
 **Current Gaps:**
 - No `Semantics` widgets for screen readers
@@ -733,7 +580,7 @@ RawKeyboardListener(
 
 ---
 
-### 9. Fix Home Screen Hardcoded Stats
+### 8. Fix Home Screen Hardcoded Stats
 
 **File:** `lib/screens/home_screen.dart`
 
@@ -775,7 +622,7 @@ learningPathAsync.when(
 
 ---
 
-### 10. Enable or Remove Code Formatting Check
+### 9. Enable or Remove Code Formatting Check
 
 **File:** `.github/workflows/dart.yml`
 
@@ -825,7 +672,7 @@ dev_dependencies:
 
 ## 🔧 Low Priority (Future Enhancements)
 
-### 11. Performance Optimizations
+### 10. Performance Optimizations
 
 **Potential Improvements:**
 
@@ -870,7 +717,7 @@ dart devtools
 
 ---
 
-### 12. Enhanced Error Handling
+### 11. Enhanced Error Handling
 
 **Current State:** Good error handling, but could be better
 
@@ -930,7 +777,7 @@ class ErrorWidget extends StatelessWidget {
 
 ---
 
-### 13. Dependency Management
+### 12. Dependency Management
 
 **Current Dependencies:** All up-to-date ✅
 
@@ -959,7 +806,7 @@ updates:
 
 ---
 
-### 14. Documentation Enhancements
+### 13. Documentation Enhancements
 
 **Add to Project:**
 
@@ -1016,12 +863,12 @@ Future<void> signInWithGoogle() async { ... }
 ### Bug #1: Mixed Language UI
 - **Files:** Multiple
 - **Issue:** German and English text mixed throughout app
-- **Fix:** Implement i18n (see Priority #6)
+- **Fix:** Implement i18n (see Priority #5)
 
 ### Bug #2: Profile Screen Incomplete
 - **File:** `lib/screens/profile_screen.dart:27`
 - **Issue:** Hardcoded placeholder content
-- **Fix:** Implement proper profile UI (see Priority #3)
+- **Fix:** Implement proper profile UI (see Priority #2)
 
 ### Bug #3: Home Screen Hardcoded Stats
 - **File:** `lib/screens/home_screen.dart`
@@ -1031,11 +878,11 @@ Future<void> signInWithGoogle() async { ... }
 ### Bug #4: Debug Prints in Production Code
 - **File:** `lib/services/supabase/auth_service.dart`
 - **Issue:** 14 debugPrint statements that could leak info
-- **Fix:** Replace with proper logging (see Priority #4)
+- **Fix:** Replace with proper logging (see Priority #3)
 
 ### Bug #5: No Accessibility Support
 - **Impact:** App unusable for screen reader users
-- **Fix:** Add Semantics widgets (see Priority #8)
+- **Fix:** Add Semantics widgets (see Priority #7)
 
 ---
 
@@ -1080,7 +927,6 @@ Future<void> signInWithGoogle() async { ... }
 
 ### Phase 1: Foundation (Week 1-2)
 - [ ] Add comprehensive test suite
-- [ ] Complete README documentation
 - [ ] Create .env.example
 - [ ] Fix Profile screen
 - [ ] Implement proper logging
