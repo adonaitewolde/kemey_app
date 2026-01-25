@@ -35,8 +35,18 @@ class FlashCardCarousel extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
+            Container(
               height: 245,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    const Color(0xFFF5F5F7),
+                    const Color(0xFFF5F5F7).withValues(alpha: 0.3),
+                  ],
+                ),
+              ),
               child: PageView.builder(
                 controller: pageController,
                 onPageChanged: onPageChanged,
@@ -122,58 +132,95 @@ class FlashcardSetCard extends StatelessWidget {
       scale: isActive ? 1.0 : 0.98,
       child: Material(
         color: Colors.white,
-        elevation: 10,
-        shadowColor: Colors.black.withValues(alpha: 0.25),
+        elevation: 6,
+        shadowColor: Colors.black.withValues(alpha: 0.12),
         shape: RoundedSuperellipseBorder(
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.circular(24),
         ),
-        clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: onTap,
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(18, 18, 18, 16),
-                child: Column(
+          customBorder: RoundedSuperellipseBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Stack(
+              children: [
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 16),
                     Text(
                       title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: (textTheme.titleLarge ?? const TextStyle())
                           .copyWith(
-                            color: Colors.black87,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: -0.2,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: -0.5,
+                            fontSize: 24,
                           ),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 8),
                     Text(
                       description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: (textTheme.bodyMedium ?? const TextStyle())
                           .copyWith(
-                            color: Colors.black87.withValues(alpha: 0.85),
-                            height: 1.15,
+                            color: Colors.black.withValues(alpha: 0.6),
+                            fontSize: 15,
+                            height: 1.4,
+                            letterSpacing: -0.2,
                           ),
                     ),
-                    _Stat(
-                      icon: CupertinoIcons.rectangle_stack,
-                      label: '$cardCount Cards',
+                    const Spacer(),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        _ProgressCircle(progress: progress),
+                        const Spacer(),
+                        _PlayButton(),
+                      ],
                     ),
                   ],
                 ),
-              ),
-              Positioned(bottom: 16, right: 18, child: _PlayButton()),
-              Positioned(
-                bottom: 16,
-                left: 18,
-                child: _ProgressCircle(progress: progress),
-              ),
-            ],
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 6,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.05),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          CupertinoIcons.square_stack_3d_up,
+                          size: 14,
+                          color: Colors.black.withValues(alpha: 0.5),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '$cardCount',
+                          style: TextStyle(
+                            color: Colors.black.withValues(alpha: 0.6),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
+                            letterSpacing: -0.2,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -191,21 +238,22 @@ class _ProgressCircle extends StatelessWidget {
     final clamped = progress.clamp(0.0, 1.0);
 
     return SizedBox(
-      width: 72,
-      height: 72,
+      width: 80,
+      height: 80,
       child: Stack(
         alignment: Alignment.center,
         children: [
           CustomPaint(
-            size: const Size(72, 72),
+            size: const Size(80, 80),
             painter: _ProgressPainter(progress: clamped),
           ),
           Text(
             '${(clamped * 100).toInt()}%',
-            style: const TextStyle(
-              color: AppColors.primaryOrange,
-              fontSize: 16,
+            style: TextStyle(
+              color: Colors.black.withValues(alpha: 0.8),
+              fontSize: 18,
               fontWeight: FontWeight.w600,
+              letterSpacing: -0.3,
             ),
           ),
         ],
@@ -222,11 +270,11 @@ class _ProgressPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-    final radius = (size.width / 2) - 8;
+    final radius = (size.width / 2) - 5;
     const strokeWidth = 8.0;
 
     final backgroundPaint = Paint()
-      ..color = Colors.blueGrey.withValues(alpha: 0.2)
+      ..color = Colors.black.withValues(alpha: 0.08)
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
@@ -234,7 +282,7 @@ class _ProgressPainter extends CustomPainter {
     canvas.drawCircle(center, radius, backgroundPaint);
 
     final progressPaint = Paint()
-      ..color = AppColors.primaryOrangeDark
+      ..color = AppColors.primaryOrange
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
@@ -256,61 +304,29 @@ class _ProgressPainter extends CustomPainter {
       oldDelegate.progress != progress;
 }
 
-class _Stat extends StatelessWidget {
-  const _Stat({required this.icon, required this.label});
-
-  final IconData icon;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 16, color: Colors.white.withValues(alpha: 0.9)),
-          const SizedBox(width: 6),
-          Text(
-            label,
-            style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.9),
-              fontWeight: FontWeight.w600,
-              fontSize: 12,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class _PlayButton extends StatelessWidget {
   const _PlayButton();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [AppColors.primaryOrangeDark, Color(0xFFFFB347)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(20),
+        color: AppColors.primaryOrange,
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(CupertinoIcons.play_fill, size: 20, color: Colors.white),
+          const Icon(CupertinoIcons.play_fill, size: 16, color: Colors.white),
           const SizedBox(width: 6),
           const Text(
             'Start',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
-              fontSize: 14,
+              fontSize: 15,
+              letterSpacing: -0.3,
             ),
           ),
         ],

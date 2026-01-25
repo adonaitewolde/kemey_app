@@ -102,7 +102,7 @@ class _FlashcardDetailScreenState extends ConsumerState<FlashcardDetailScreen> {
           if (visibleFlashcards.isEmpty) {
             return const Center(
               child: Text(
-                'Keine markierten Karteikarten vorhanden',
+                'No marked cards',
                 style: TextStyle(fontSize: 18, color: Colors.black54),
               ),
             );
