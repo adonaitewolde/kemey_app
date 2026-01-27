@@ -9,22 +9,29 @@ import 'package:kemey_app/widgets/flashcard_carousel.dart';
 class FlashcardScreen extends ConsumerWidget {
   const FlashcardScreen({super.key});
 
+  static const _headerPadding = EdgeInsets.fromLTRB(22.0, 90.0, 16.0, 0);
+  static const _headerTextStyle = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 24,
+  );
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final markedAsync = ref.watch(markedFlashcardsProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Practice your skills!',
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-            fontFamily: 'Poppins',
-            letterSpacing: -0.5,
-          ),
-        ),
-      ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: _headerPadding,
+            child: SizedBox(
+              width: double.infinity,
+              child: Center(
+                child: Text('Practice your skills!', style: _headerTextStyle),
+              ),
+            ),
+          ),
           const Padding(
             padding: EdgeInsets.only(top: 20),
             child: FlashCardCarousel(),

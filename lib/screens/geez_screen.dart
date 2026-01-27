@@ -36,7 +36,20 @@ class GeezScreen extends StatelessWidget {
       sliver: SliverToBoxAdapter(
         child: Align(
           alignment: Alignment.centerLeft,
-          child: Text('Base Letters', style: _headerTextStyle),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Base Letters', style: _headerTextStyle),
+              const SizedBox(height: 6),
+              Text(
+                'Tap on the letters to see the variants.',
+                style: _headerTextStyle.copyWith(
+                  fontSize: 14,
+                  color: Colors.grey.shade600,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

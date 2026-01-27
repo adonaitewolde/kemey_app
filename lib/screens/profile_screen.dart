@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kemey_app/theme/app_theme.dart';
 import 'settings_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -14,21 +15,34 @@ class ProfileScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const SettingsScreen(),
-                ),
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
               );
             },
           ),
         ],
       ),
-      body: const Center(
+      body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.person, size: 64),
-            SizedBox(height: 16),
-            Text('Profil'),
+            const SizedBox(height: 60),
+            // Round profile picture
+            CircleAvatar(
+              radius: 40,
+              backgroundColor: AppColors.primaryOrange,
+              child: const Icon(Icons.person, size: 50, color: Colors.white),
+            ),
+            const SizedBox(height: 24),
+            // Display name
+            const Text(
+              'Abel',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            // Username
+            Text(
+              '@abel05',
+              style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+            ),
           ],
         ),
       ),
